@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>간편 중장년층 고용 도움 프로그램</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+        
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-styleBlue">
+            <div class="container px-lg-5">
+                <!--css 중장년 고용24 색상-->
+                <a class="navbar-brand" href="#!">간편 중장년 고용24</a> 
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <!--홈 화면으로 돌아가기(아직 안함)-->
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">홈</a></li>
+                        <!--지역 워크넷을 새창으로 여는 링크 연결 -->
+                        <li class="nav-item"><a class="nav-link" href="https://www.work.go.kr/empInfo/empInfoSrch/list/retriveWorkRegionEmpIntroList.do" target="_blank" title="새창">지역워크넷</a></li>
+                        <!--중장년 워크넷을 새창으로 여는 링크 연결 -->
+                        <li class="nav-item"><a class="nav-link" href="https://www.work.go.kr/senior/main/main.do" target="_blank" title="새창">중장년워크넷</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="py-5">
+            <div class="container px-lg-5">
+                <!--css card body 색상-->
+                <div class="p-4 p-lg-5 bg-styleBlue_light rounded-3 text-center">
+                    <div class="m-4 m-lg-5">
+                        <!--이벤트 베너 or 우리 홈페이지 정체성 설명 베너(따로 링크 연결 x)-->
+                        <h1 class="display-5 fw-bold">이벤트 베너</h1>
+                        <p class="fs-4">이벤트 베너 or 우리 홈페이지 정체성 설명 베너</p>
+                        <!--<a class="form-check-input" href="#!">이벤트 베너일 시 이 버튼 필요, 아닐 시 삭제</a>-->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Page Content-->
+        <section class="pt-4">
+            <div class="container px-lg-5">
+                <!-- Page Features-->
+                <div class="row gx-lg-5">
+                    <div class="col-lg-6 col-xxl-4 mb-5">
+                        <!--css small card body 색상-->
+                        <div class="card bg-styleBlue_light_fourth border-0 h-100">
+                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                                <!--첫째 칸 아이콘-->
+                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-person-lines-fill"></i></div>
+                                <h2 class="fs-4 fw-bold">맞춤 일자리 추천</h2>
+                                <p class="mb-0">사용자 정보 기반 맞춤 직업 및 프로그램 추천</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xxl-4 mb-5">
+                        <!--css small card body 색상-->
+                        <div class="card bg-styleBlue_light_fourth border-0 h-100">
+                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                                <!--둘째 칸 아이콘-->
+                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-ui-checks-grid"></i></div>
+                                <h2 class="fs-4 fw-bold">카테고리 일자리 추천</h2>
+                                <p class="mb-0">원하는 분야 선택 후 관련 직업 및 프로그램 추천(원하는 분야 맞춰서 우선 순위 높은 대로, 2순위 우선 순위는 지역)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xxl-4 mb-5">
+                        <!--css small card body 색상-->
+                        <div class="card bg-styleBlue_light_fourth border-0 h-100">
+                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                                <!--셋째 칸 아이콘-->
+                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-geo-alt"></i></i></div>
+                                <h2 class="fs-4 fw-bold">지역 일자리 추천</h2>
+                                <p class="mb-0">사용자가 선택한 지역 기반 추천</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xxl-4 mb-5">
+                        <!--css small card body 색상-->
+                        <div class="card bg-styleBlue_light_second border-0 h-100">
+                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                                <!--넷째 칸 아이콘-->
+                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-list-ul"></i></div>
+                                <h2 class="fs-4 fw-bold">전체 일자리 정보</h2>
+                                <p class="mb-0">일자리 정보 소개</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xxl-4 mb-5">
+                        <!--css small card body 색상-->
+                        <div class="card bg-styleYellow_light_sixth border-0 h-100">
+                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                                <!--다섯째 칸 아이콘-->
+                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-book"></i></div>
+                                <h2 class="fs-4 fw-bold">고용 도움 프로그램 소개</h2>
+                                <p class="mb-0">온오프라인 프로그램 목록</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xxl-4 mb-5">
+                        <!--css small card body 색상-->
+                        <div class="card bg-stylePink_light_seventh border-0 h-100">
+                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                                <!--여섯번째 칸 아이콘-->
+                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-question"></i></div>
+                                <h2 class="fs-4 fw-bold">공지사항 or Q&A는 힘들것 같다고 햇으니까,,모,,기타..?</h2>
+                                <p class="mb-0">대충 홈페이지 소개창으로 해도 될것 같고 기타 페이지</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; 채단비&박민정</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
