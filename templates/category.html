@@ -23,8 +23,6 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <!--홈 화면으로 돌아가기(아직 안함)-->
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">홈</a></li>
                         <!--지역 워크넷을 새창으로 여는 링크 연결 -->
                         <li class="nav-item"><a class="nav-link" href="https://www.work.go.kr/empInfo/empInfoSrch/list/retriveWorkRegionEmpIntroList.do" target="_blank" title="새창">지역워크넷</a></li>
                         <!--중장년 워크넷을 새창으로 여는 링크 연결 -->
@@ -33,89 +31,121 @@
                 </div>
             </div>
         </nav>
-        <!-- Header-->
-        <header class="py-5">
-            <div class="container px-lg-5">
-                <!--css card body 색상-->
-                <div class="p-4 p-lg-4 bg-styleBlue_light_select rounded-3 text-center">
-                    <div class="m-4 m-lg-5">
-                        <form class="form-check" action="submission_url" method="POST">
-                        <!-- 폼 -->
-                            <h1 class="display-5 fw-bold">카테고리 일자리 추천</h1>
-                            <br><br>
-                            <div class="btn-container">
-                                <input type="submit" class="btn btn-primary fw-bold" value="조리">
-                                <input type="submit" class="btn btn-primary fw-bold" value="요양">
-                                <input type="submit" class="btn btn-primary fw-bold" value="경비">
-                                <input type="submit" class="btn btn-primary fw-bold" value="기타">
-                            </div>
 
-                        </form>
-                    </div>
-                </div>
-                <br><br><br>
 
-                <div id="resultBox" class="table-wrap">
-                    <!-- 결과를 여기에 표시할 div -->
-                    <table class="board-list">
-                        <colgroup>
-                            <col style="width:4em;">
-                            <col style="width:24em;">
-                            <col style="width:5em;">
-                            <col style="width:5em;">
-                            <col style="width:5em;">
-                        </colgroup>
-                        <thead>
-                            <tr>
-                                <th scope="col">번호</th>
-                                <th scope="col">채용공고명/담당업무</th>
-                                <th scope="col">지역</th>
-                                <th scope="col">근무조건</th>
-                                <th scope="col">마감일</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr id ="list1">
-                                <td>1</td>
-                                <td>
-                                    <a onclick="try { latte.getEvent(event).stop(); } catch (ex) {}; NetFunnel_Action({action_id:'EmpInfoDetail'}, function(ev,ret){ window.open('/empInfo/empInfoSrch/detail/retrivePriEmpDtlView.do?searchInfoType=CSI&amp;iorgGbcd=CSI&amp;callPage=detail&amp;wantedAuthNo=48520360&amp;rtnTarget=list1&amp;pageIndex=1&amp;rtnUrl=/empInfo/empInfoSrch/list/dtlEmpSrchList.do?len=0&amp;regionArr=[Ljava.lang.String;@57a3bd0c&amp;pageSize=10&amp;firstIndex=1&amp;lastIndex=1&amp;recordCountPerPage=10&amp;siteClcd=all&amp;benefitSrchAndOr=O&amp;areaRegion=11000&amp;areaArc=1&amp;codeDepth1Info=11000&amp;codeDepth2Info=11000&amp;srchJobNum=0&amp;empTpGbcd=1&amp;sortField=DATE&amp;sortOrderBy=DESC&amp;resultCnt=10&amp;&amp;onlyTitleSrchYn=N', 'empDtlType'); }); $(this).css('color', '#8390B6'); return false;" href="/empInfo/empInfoSrch/detail/retrivePriEmpDtlView.do?searchInfoType=CSI&amp;iorgGbcd=CSI&amp;callPage=detail&amp;wantedAuthNo=48520360&amp;rtnTarget=list1&amp;pageIndex=1&amp;rtnUrl=/empInfo/empInfoSrch/list/dtlEmpSrchList.do?len=0&amp;regionArr=[Ljava.lang.String;@57a3bd0c&amp;pageSize=10&amp;firstIndex=1&amp;lastIndex=1&amp;recordCountPerPage=10&amp;siteClcd=all&amp;benefitSrchAndOr=O&amp;areaRegion=11000&amp;areaArc=1&amp;codeDepth1Info=11000&amp;codeDepth2Info=11000&amp;srchJobNum=0&amp;empTpGbcd=1&amp;sortField=DATE&amp;sortOrderBy=DESC&amp;resultCnt=10&amp;&amp;onlyTitleSrchYn=N">
-                                        [연봉3,600/주6일]케이스 식자재 마트 정육파트 정규직 사원모집
-                                    </a>
-                                </td>
-                                <td>
-                                    <p>서울시</p>
-                                </td>
-                                <td>
-                                    <p>주 5일</p>
-                                </td>
-                                <td>
-                                    <p>24/07/31 마감</p>
-                                </td>
-                            </tr>
-                            <tr id ="list2">
-                                <td>2</td>
-                                <td>
-                                    <a onclick="try { latte.getEvent(event).stop(); } catch (ex) {}; NetFunnel_Action({action_id:'EmpInfoDetail'}, function(ev,ret){ window.open('/empInfo/empInfoSrch/detail/retrivePriEmpDtlView.do?searchInfoType=CSI&amp;iorgGbcd=CSI&amp;callPage=detail&amp;wantedAuthNo=48520360&amp;rtnTarget=list1&amp;pageIndex=1&amp;rtnUrl=/empInfo/empInfoSrch/list/dtlEmpSrchList.do?len=0&amp;regionArr=[Ljava.lang.String;@57a3bd0c&amp;pageSize=10&amp;firstIndex=1&amp;lastIndex=1&amp;recordCountPerPage=10&amp;siteClcd=all&amp;benefitSrchAndOr=O&amp;areaRegion=11000&amp;areaArc=1&amp;codeDepth1Info=11000&amp;codeDepth2Info=11000&amp;srchJobNum=0&amp;empTpGbcd=1&amp;sortField=DATE&amp;sortOrderBy=DESC&amp;resultCnt=10&amp;&amp;onlyTitleSrchYn=N', 'empDtlType'); }); $(this).css('color', '#8390B6'); return false;" href="/empInfo/empInfoSrch/detail/retrivePriEmpDtlView.do?searchInfoType=CSI&amp;iorgGbcd=CSI&amp;callPage=detail&amp;wantedAuthNo=48520360&amp;rtnTarget=list1&amp;pageIndex=1&amp;rtnUrl=/empInfo/empInfoSrch/list/dtlEmpSrchList.do?len=0&amp;regionArr=[Ljava.lang.String;@57a3bd0c&amp;pageSize=10&amp;firstIndex=1&amp;lastIndex=1&amp;recordCountPerPage=10&amp;siteClcd=all&amp;benefitSrchAndOr=O&amp;areaRegion=11000&amp;areaArc=1&amp;codeDepth1Info=11000&amp;codeDepth2Info=11000&amp;srchJobNum=0&amp;empTpGbcd=1&amp;sortField=DATE&amp;sortOrderBy=DESC&amp;resultCnt=10&amp;&amp;onlyTitleSrchYn=N">
-                                        [연봉3,600/주6일]케이스 식자재 마트 정육파트 정규직 사원모집
-                                    </a>
-                                </td>
-                                <td>
-                                    <p>서울시</p>
-                                </td>
-                                <td>
-                                    <p>주 5일</p>
-                                </td>
-                                <td>
-                                    <p>24/07/31 마감</p>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+        <div id="contents">
+        <!-- Side Bar-->
+            <div class="left_sider">
+                <div class="left_gnb">
+                    <div class="left_tit">서비스</div>
+                    <ul>
+                        <li>
+                            <a class="side_li" href="">맞춤 일자리 추천</a>
+                        </li>
+                        <li>
+                            <a class="side_li" href="">카테고리 일자리 추천</a>
+                        </li>
+                        <li>
+                            <a class="side_li" href="">지역 일자리 추천</a>
+                        </li>
+                        <li>
+                            <a class="side_li" href="">전체 일자리 정보</a>
+                        </li>
+                        <li>
+                            <a class="side_li" href="">고용 도움 프로그램 소개</a>
+                            </li>
+                        <li>
+                            <a class="side_li" href="">공지사항</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </header>
-        <!-- Page Content-->
-        <section class="pt-4">
+
+            <!-- Main-->
+            <div class="py-5">
+                <div class="container px-lg-5">
+                    <!--css card body 색상-->
+                    <div class="p-4 p-lg-4 bg-styleBlue_light_select rounded-3 text-center">
+                        <div class="m-4 m-lg-5">
+                            <form class="form-check" action="submission_url" method="POST">
+                            <!-- 폼 -->
+                                <h1 class="display-5 fw-bold">카테고리 일자리 추천</h1>
+                                <br><br>
+                                <div class="btn-container">
+                                    <input type="submit" class="btn btn-primary fw-bold" value="조리">
+                                    <input type="submit" class="btn btn-primary fw-bold" value="요양">
+                                    <input type="submit" class="btn btn-primary fw-bold" value="경비">
+                                    <input type="submit" class="btn btn-primary fw-bold" value="기타">
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                    <br><br><br>
+
+                    <!-- 결과를 여기에 표시할 div -->
+                    <div id="resultBox" class="table-wrap">
+                        <table class="board-list">
+                            <colgroup>
+                                <col style="width:4em;">
+                                <col style="width:24em;">
+                                <col style="width:5em;">
+                                <col style="width:5em;">
+                                <col style="width:5em;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">번호</th>
+                                    <th scope="col">채용공고명/담당업무</th>
+                                    <th scope="col">지역</th>
+                                    <th scope="col">근무조건</th>
+                                    <th scope="col">마감일</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id ="list1">
+                                    <td>1</td>
+                                    <td>
+                                        <a onclick="try { latte.getEvent(event).stop(); } catch (ex) {}; NetFunnel_Action({action_id:'EmpInfoDetail'}, function(ev,ret){ window.open('/empInfo/empInfoSrch/detail/retrivePriEmpDtlView.do?searchInfoType=CSI&amp;iorgGbcd=CSI&amp;callPage=detail&amp;wantedAuthNo=48520360&amp;rtnTarget=list1&amp;pageIndex=1&amp;rtnUrl=/empInfo/empInfoSrch/list/dtlEmpSrchList.do?len=0&amp;regionArr=[Ljava.lang.String;@57a3bd0c&amp;pageSize=10&amp;firstIndex=1&amp;lastIndex=1&amp;recordCountPerPage=10&amp;siteClcd=all&amp;benefitSrchAndOr=O&amp;areaRegion=11000&amp;areaArc=1&amp;codeDepth1Info=11000&amp;codeDepth2Info=11000&amp;srchJobNum=0&amp;empTpGbcd=1&amp;sortField=DATE&amp;sortOrderBy=DESC&amp;resultCnt=10&amp;&amp;onlyTitleSrchYn=N', 'empDtlType'); }); $(this).css('color', '#8390B6'); return false;" href="/empInfo/empInfoSrch/detail/retrivePriEmpDtlView.do?searchInfoType=CSI&amp;iorgGbcd=CSI&amp;callPage=detail&amp;wantedAuthNo=48520360&amp;rtnTarget=list1&amp;pageIndex=1&amp;rtnUrl=/empInfo/empInfoSrch/list/dtlEmpSrchList.do?len=0&amp;regionArr=[Ljava.lang.String;@57a3bd0c&amp;pageSize=10&amp;firstIndex=1&amp;lastIndex=1&amp;recordCountPerPage=10&amp;siteClcd=all&amp;benefitSrchAndOr=O&amp;areaRegion=11000&amp;areaArc=1&amp;codeDepth1Info=11000&amp;codeDepth2Info=11000&amp;srchJobNum=0&amp;empTpGbcd=1&amp;sortField=DATE&amp;sortOrderBy=DESC&amp;resultCnt=10&amp;&amp;onlyTitleSrchYn=N">
+                                            [연봉3,600/주6일]케이스 식자재 마트 정육파트 정규직 사원모집
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <p>서울시</p>
+                                    </td>
+                                    <td>
+                                        <p>주 5일</p>
+                                    </td>
+                                    <td>
+                                        <p>24/07/31 마감</p>
+                                    </td>
+                                </tr>
+                                <tr id ="list2">
+                                    <td>2</td>
+                                    <td>
+                                        <a onclick="try { latte.getEvent(event).stop(); } catch (ex) {}; NetFunnel_Action({action_id:'EmpInfoDetail'}, function(ev,ret){ window.open('/empInfo/empInfoSrch/detail/retrivePriEmpDtlView.do?searchInfoType=CSI&amp;iorgGbcd=CSI&amp;callPage=detail&amp;wantedAuthNo=48520360&amp;rtnTarget=list1&amp;pageIndex=1&amp;rtnUrl=/empInfo/empInfoSrch/list/dtlEmpSrchList.do?len=0&amp;regionArr=[Ljava.lang.String;@57a3bd0c&amp;pageSize=10&amp;firstIndex=1&amp;lastIndex=1&amp;recordCountPerPage=10&amp;siteClcd=all&amp;benefitSrchAndOr=O&amp;areaRegion=11000&amp;areaArc=1&amp;codeDepth1Info=11000&amp;codeDepth2Info=11000&amp;srchJobNum=0&amp;empTpGbcd=1&amp;sortField=DATE&amp;sortOrderBy=DESC&amp;resultCnt=10&amp;&amp;onlyTitleSrchYn=N', 'empDtlType'); }); $(this).css('color', '#8390B6'); return false;" href="/empInfo/empInfoSrch/detail/retrivePriEmpDtlView.do?searchInfoType=CSI&amp;iorgGbcd=CSI&amp;callPage=detail&amp;wantedAuthNo=48520360&amp;rtnTarget=list1&amp;pageIndex=1&amp;rtnUrl=/empInfo/empInfoSrch/list/dtlEmpSrchList.do?len=0&amp;regionArr=[Ljava.lang.String;@57a3bd0c&amp;pageSize=10&amp;firstIndex=1&amp;lastIndex=1&amp;recordCountPerPage=10&amp;siteClcd=all&amp;benefitSrchAndOr=O&amp;areaRegion=11000&amp;areaArc=1&amp;codeDepth1Info=11000&amp;codeDepth2Info=11000&amp;srchJobNum=0&amp;empTpGbcd=1&amp;sortField=DATE&amp;sortOrderBy=DESC&amp;resultCnt=10&amp;&amp;onlyTitleSrchYn=N">
+                                            [연봉3,600/주6일]케이스 식자재 마트 정육파트 정규직 사원모집
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <p>서울시</p>
+                                    </td>
+                                    <td>
+                                        <p>주 5일</p>
+                                    </td>
+                                    <td>
+                                        <p>24/07/31 마감</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
 
 
         </section>
