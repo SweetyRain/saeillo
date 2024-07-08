@@ -12,14 +12,14 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
-
+        
     </head>
     <body>
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-styleBlue">
             <div class="container px-lg-5">
                 <!--css 중장년 고용24 색상-->
-                <a class="navbar-brand" href="#!">새일로</a>
+                <a class="navbar-brand" href="#!">새일로</a> 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -31,14 +31,14 @@
                 </div>
             </div>
         </nav>
-
+        
         <!--upper bar-->
         <nav class="navbar navbar-expand-lg navbar-dark ">
             <div class="container px-lg-5">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link_grey" href="" > 맞춤 일자리 </a></li>
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">                      
+                        <li class="nav-item"><a class="nav-link_grey" href="" > 맞춤 일자리 </a></li>  
                         <li class="nav-item"><a class="nav-link_grey" href="" > 카테고리 일자리 </a></li>
                         <li class="nav-item"><a class="nav-link_grey" href=""> 지역 일자리 </a></li>
                         <li class="nav-item"><a class="nav-link_grey" href="" > 전체 일자리 </a></li>
@@ -60,15 +60,45 @@
                                 <div class="m-4 m-lg-5">
                                     <form class="form-check" action="submission_url" method="POST">
                                     <!-- 폼 -->
-                                        <h1 class="display-5 fw-bold">카테고리 일자리 추천</h1>
+                                        <h1 class="display-5 fw-bold">맞춤 일자리 추천</h1>
                                         <br><br>
-                                        <div class="btn-container">
-                                            <input type="submit" class="btn btn-primary fw-bold" value="조리">
-                                            <input type="submit" class="btn btn-primary fw-bold" value="요양">
-                                            <input type="submit" class="btn btn-primary fw-bold" value="경비">
-                                            <input type="submit" class="btn btn-primary fw-bold" value="기타">
-                                        </div>
 
+                                        <!-- 폼 -->
+                                        <li class="region-btn-container">
+                                            <span class="personal_tit">고용형태</span>
+                                            <div class="cont_region">
+                                                <div class="box_chk_group">
+                                                    <span class="personal_chk">
+                                                        <input class="personal_in_chk" type="checkbox" id="holidayGBNParam1" value="1" title="주6일">
+                                                        <label>주6일</label>
+                                                    </span>
+                                                    <span class="personal_chk">
+                                                        <input class="personal_in_chk" type="checkbox" id="holidayGBNParam2" value="2" title="주5일">
+                                                        <label>주5일</label>
+                                                    </span>
+                                                    <span class="personal_chk">
+                                                        <input class="personal_in_chk" type="checkbox" id="holidayGBNParam3" value="3" title="주4일">
+                                                        <label>주4일</label>
+                                                    </span>
+                                                    <span class="personal_chk">
+                                                        <input class="personal_in_chk" type="checkbox" id="holidayGBNParam4" value="4" title="주3일">
+                                                        <label>주3일</label>
+                                                    </span>
+                                                    <span class="personal_chk">
+                                                        <input class="personal_in_chk" type="checkbox" id="holidayGBNParam5" value="5" title="주2일">
+                                                        <label>주2일</label>
+                                                    </span>
+                                                    <span class="personal_chk">
+                                                        <input class="personal_in_chk" type="checkbox" id="holidayGBNParam6" value="6" title="주6일">
+                                                        <label>주1일</label>
+                                                    </span>
+                                                    
+                                                </div>
+                                            </div>
+
+
+                                        </li>
+                                        
                                     </form>
                                 </div>
                             </div>
@@ -133,10 +163,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-
-
+                </div>   
 
             </div>
         </section>
