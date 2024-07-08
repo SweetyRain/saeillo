@@ -8,19 +8,11 @@ db = pymysql.connect(host='localhost',
                      charset='utf8')
 
 cursor = db.cursor()
-cursor.execute("INSERT INTO announcement(job_index, job_title, job_link, job_deadline, job_region, job_pay) "
-               "VALUES (0, 'a', 'b', 0, 'c', 0)")
 
-sql = 'SELECT * from announcement'
-
-# 쿼리 실행
-cursor = db.cursor()  # default 튜플 타입으로 받기
-# cursor = db.cursor(pymysql.cursors.DictCursor)  # Dictionary 타입으로 받기
-cursor.execute(sql)
-
-# 결과 받고 컨트롤하기
-data = cursor.fetchall()
-print(data)
-
-db.commit()
-db.close()
+def input_db(jobData):
+    insert_sql = ("INSERT INTO announcement (job_title, job_link, job_categorie, job_region, job_deadline, "
+                  "job_career, job_education, job_pay, job_employmentType, job_worktype, job_welfare) "
+                  "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
+    cursor.execute(insert_sql, (jobData['name'], jobData['href'], jobData['categorie'], jobData['region'], jobData['dday'], jobData['career'],
+                                jobData['Education'], jobData['pay'], jobData['employmentType'], jobData['workType'], jobData['welfare']))
+    db.commit()
