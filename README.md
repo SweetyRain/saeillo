@@ -13,3 +13,5 @@
 7월 8일 crolling 리팩토링 & mysql내 데이터 삽입 완료, schedule 구현 완료
 
 7월 9일 css 몇가지 복구, 사이드바 삭제, 위에 nav바로 이동, 맞춤 추천 -고용 형태 버튼 생성, 지역 추천 창 생성, 카테고리 추천 창 레이아웃 변경
+
+7월 13일 def registration_date_check 함수 추가
