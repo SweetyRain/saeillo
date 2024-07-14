@@ -15,3 +15,5 @@
 7월 13일 def registration_date_check 함수 추가
 
 7월 15일 def delete_db(마감날짜 지남 혹은 공고 올라온지 6개월 지난 데이터 삭제) 함수 추가
+
+7월 15일 전체 일자리 창 추가
