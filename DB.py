@@ -15,7 +15,7 @@ cursor = db.cursor()
 def input_db(jobData):
     insert_sql = ("INSERT INTO announcement (job_title, job_link, job_categorie, job_region, job_startline, job_deadline, "
                   "job_career, job_education, job_pay, job_employmentType, job_worktype, job_welfare) "
-                  "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
+                  "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
     cursor.execute(insert_sql, (jobData['name'], jobData['href'], jobData['categorie'], jobData['region'], jobData['startday'], jobData['dday'], jobData['career'],
                                 jobData['Education'], jobData['pay'], jobData['employmentType'], jobData['workType'], jobData['welfare']))
     db.commit()
@@ -39,11 +39,15 @@ def get_data_full(full_sql):
     try:
         cursor.execute(full_sql)
         data = cursor.fetchall()
-        print(data)
         return data
     finally:
         db.close()
 
+def get_data_category(category_sql):
+    try:
+        cursor.execute(category_sql)
+        data = cursor.fetchall()
+        return data
+    finally:
+        db.close()
 
-if __name__ == "__main__":
-    get_data_full()
