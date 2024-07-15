@@ -120,6 +120,23 @@
                                     </tbody>
                                 </table>
                             </div>
+
+<!--                            페이징 위한 html-->
+                            <div class="pagination">
+                                {% if has_prev %}
+                                    <a href="{{ url_for('category_page', page=page - 1) }}">앞으로</a>
+                                {% endif %}
+                                {% for page_num in page_numbers %}
+                                    {% if page_num == page %}
+                                        <strong>{{ page_num }}</strong>
+                                    {% else %}
+                                        <a href="{{ url_for('category_page', page=page_num) }}">{{ page_num }}</a>
+                                    {% endif %}
+                                {% endfor %}
+                                {% if has_next %}
+                                    <a href="{{ url_for('category_page', page=page + 1) }}">뒤로</a>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </div>
