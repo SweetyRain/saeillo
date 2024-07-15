@@ -2785,7 +2785,7 @@ textarea.form-control-lg {
   --bs-btn-color: #707275;
   --bs-btn-active-bg: #d1e1ff7b;
   --bs-btn-bg: transparent;
-  --bs-btn-border-width: 1px;
+  --bs-btn-border-width: 2px;
   --bs-btn-border-color: transparent;
   --bs-btn-border-radius: 0.375rem;
   --bs-btn-hover-border-color: transparent;
@@ -2811,6 +2811,9 @@ textarea.form-control-lg {
   background-color: var(--bs-btn-bg);
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
+
+
 @media (prefers-reduced-motion: reduce) {
   .btn {
     transition: none;
@@ -11866,14 +11869,14 @@ li{
 
 .region-btn-container{
   display: block;
-  height: 349px;
+  height: 400px;
   position: relative;
   border: 3px solid #e5ecf1;
   -webkit-box-sizing: border-box;
   unicode-bidi: isolate;
-
+  padding: 0;
   font-size: 14px;
-  line-height: 1.8;
+  line-height: 1;
   color: #666;
   font-weight: normal;
 
@@ -11882,24 +11885,51 @@ li{
   display: table;
 }
 
+.region_column, .district_column {
+  vertical-align: top;
+  padding: 0;
+  margin: 0;
+}
 
+.region_column {
+  width: 250px;
+}
 
+.district_column {
+  width: 700px;
+}
+
+/*시 선택*/
 .region_list{
   overflow: hidden;
   padding: 0;
+  margin: 0;
   border-right: 3px solid #e5ecf1;
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
-  margin-block-start: 10px;
-  margin-block-end: 0px;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  padding-inline-start: 10px;
+  unicode-bidi: isolate;
+  word-break: break-all;
+
+}
+/*구, 군 선택*/
+.region_list_2{
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
   unicode-bidi: isolate;
   word-break: break-all;
   -webkit-text-size-adjust: 100%;
-  width: 34%;
+
+}
+
+.region_list_2 li{
+  padding: 0;
+  margin: 0;
+  list-style: none;      /* 리스트 스타일 제거 */
 }
 
 .region_list li {
