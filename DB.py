@@ -35,19 +35,13 @@ def delete_db():
     cursor.execute(delete_sql)
     db.commit()
 
-def get_data_full(full_sql):
+def get_data(sql):
     try:
-        cursor.execute(full_sql)
-        data = cursor.fetchall()
-        return data
-    finally:
-        db.close()
-
-def get_data_category(category_sql):
-    try:
-        cursor.execute(category_sql)
-        data = cursor.fetchall()
-        return data
-    finally:
-        db.close()
+        with db.cursor() as cursor:
+            cursor.execute(sql)
+            result = cursor.fetchall()
+            return result
+    except Exception as e:
+        print(f"Error fetching data from database: {e}")
+        return []
 

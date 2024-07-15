@@ -6,8 +6,6 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>새일로</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -90,7 +88,7 @@
                                     </thead>
                                     <tbody>
                                         {% for row in data %}
-                                            <tr id ="list1">
+                                            <tr id ="list{{ loop.index }}">
                                                 <td>{{row.job_index}}</td>
                                                 <td>
                                                     <a href="" onclick="try { latte.getEvent(event).stop(); } catch (ex) {}; NetFunnel_Action({action_id:'EmpInfoDetail'}, function(ev,ret){ window.open('/empInfo/empInfoSrch/detail/retrivePriEmpDtlView.do?searchInfoType=CSI&amp;iorgGbcd=CSI&amp;callPage=detail&amp;wantedAuthNo=48520360&amp;rtnTarget=list1&amp;pageIndex=1&amp;rtnUrl=/empInfo/empInfoSrch/list/dtlEmpSrchList.do?len=0&amp;regionArr=[Ljava.lang.String;@57a3bd0c&amp;pageSize=10&amp;firstIndex=1&amp;lastIndex=1&amp;recordCountPerPage=10&amp;siteClcd=all&amp;benefitSrchAndOr=O&amp;areaRegion=11000&amp;areaArc=1&amp;codeDepth1Info=11000&amp;codeDepth2Info=11000&amp;srchJobNum=0&amp;empTpGbcd=1&amp;sortField=DATE&amp;sortOrderBy=DESC&amp;resultCnt=10&amp;&amp;onlyTitleSrchYn=N', 'empDtlType'); }); $(this).css('color', '#8390B6'); return false;">
@@ -104,7 +102,11 @@
                                                     <p>{{row.job_employmentType}}</p>
                                                 </td>
                                                 <td>
-                                                    <p>{{row.job_deadline}}</p>
+                                                    {% if row.job_deadline == 30000000 %}
+                                                        <p>채용시까지</p>
+                                                    {% else %}
+                                                        <p>{{ row.formatted_deadline }}</p>
+                                                    {% endif %}
                                                 </td>
                                             </tr>
                                         {% endfor %}

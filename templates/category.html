@@ -59,15 +59,15 @@
                             <!--css card body 색상-->
                             <div class="p-4 p-lg-4 bg-styleBlue_light_select rounded-3 text-center">
                                 <div class="m-4 m-lg-5">
-                                    <form class="form-check" action="submission_url" method="POST">
+                                    <form class="form-check" action="/category" method="get">
                                     <!-- 폼 -->
                                         <h1 class="display-5 fw-bold">카테고리 일자리 추천</h1>
                                         <br><br>
                                         <div class="btn-container">
-                                            <input type="submit" class="btn btn-primary fw-bold" value="조리">
-                                            <input type="submit" class="btn btn-primary fw-bold" value="요양">
-                                            <input type="submit" class="btn btn-primary fw-bold" value="경비">
-                                            <input type="submit" class="btn btn-primary fw-bold" value="기타">
+                                            <input type="submit" class="btn btn-primary fw-bold" name="value" value="조리">
+                                            <input type="submit" class="btn btn-primary fw-bold" name="value" value="요양">
+                                            <input type="submit" class="btn btn-primary fw-bold" name="value" value="경비">
+                                            <input type="submit" class="btn btn-primary fw-bold" name="value" value="기타">
                                         </div>
                                     </form>
                                 </div>
@@ -94,40 +94,29 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr id ="list1">
-                                            <td>1</td>
-                                            <td>
-                                                <a onclick="try { latte.getEvent(event).stop(); } catch (ex) {}; NetFunnel_Action({action_id:'EmpInfoDetail'}, function(ev,ret){ window.open('/empInfo/empInfoSrch/detail/retrivePriEmpDtlView.do?searchInfoType=CSI&amp;iorgGbcd=CSI&amp;callPage=detail&amp;wantedAuthNo=48520360&amp;rtnTarget=list1&amp;pageIndex=1&amp;rtnUrl=/empInfo/empInfoSrch/list/dtlEmpSrchList.do?len=0&amp;regionArr=[Ljava.lang.String;@57a3bd0c&amp;pageSize=10&amp;firstIndex=1&amp;lastIndex=1&amp;recordCountPerPage=10&amp;siteClcd=all&amp;benefitSrchAndOr=O&amp;areaRegion=11000&amp;areaArc=1&amp;codeDepth1Info=11000&amp;codeDepth2Info=11000&amp;srchJobNum=0&amp;empTpGbcd=1&amp;sortField=DATE&amp;sortOrderBy=DESC&amp;resultCnt=10&amp;&amp;onlyTitleSrchYn=N', 'empDtlType'); }); $(this).css('color', '#8390B6'); return false;" href="/empInfo/empInfoSrch/detail/retrivePriEmpDtlView.do?searchInfoType=CSI&amp;iorgGbcd=CSI&amp;callPage=detail&amp;wantedAuthNo=48520360&amp;rtnTarget=list1&amp;pageIndex=1&amp;rtnUrl=/empInfo/empInfoSrch/list/dtlEmpSrchList.do?len=0&amp;regionArr=[Ljava.lang.String;@57a3bd0c&amp;pageSize=10&amp;firstIndex=1&amp;lastIndex=1&amp;recordCountPerPage=10&amp;siteClcd=all&amp;benefitSrchAndOr=O&amp;areaRegion=11000&amp;areaArc=1&amp;codeDepth1Info=11000&amp;codeDepth2Info=11000&amp;srchJobNum=0&amp;empTpGbcd=1&amp;sortField=DATE&amp;sortOrderBy=DESC&amp;resultCnt=10&amp;&amp;onlyTitleSrchYn=N">
-                                                    [연봉3,600/주6일]케이스 식자재 마트 정육파트 정규직 사원모집
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <p>서울시</p>
-                                            </td>
-                                            <td>
-                                                <p>주 5일</p>
-                                            </td>
-                                            <td>
-                                                <p>24/07/31 마감</p>
-                                            </td>
-                                        </tr>
-                                        <tr id ="list2">
-                                            <td>2</td>
-                                            <td>
-                                                <a onclick="try { latte.getEvent(event).stop(); } catch (ex) {}; NetFunnel_Action({action_id:'EmpInfoDetail'}, function(ev,ret){ window.open('/empInfo/empInfoSrch/detail/retrivePriEmpDtlView.do?searchInfoType=CSI&amp;iorgGbcd=CSI&amp;callPage=detail&amp;wantedAuthNo=48520360&amp;rtnTarget=list1&amp;pageIndex=1&amp;rtnUrl=/empInfo/empInfoSrch/list/dtlEmpSrchList.do?len=0&amp;regionArr=[Ljava.lang.String;@57a3bd0c&amp;pageSize=10&amp;firstIndex=1&amp;lastIndex=1&amp;recordCountPerPage=10&amp;siteClcd=all&amp;benefitSrchAndOr=O&amp;areaRegion=11000&amp;areaArc=1&amp;codeDepth1Info=11000&amp;codeDepth2Info=11000&amp;srchJobNum=0&amp;empTpGbcd=1&amp;sortField=DATE&amp;sortOrderBy=DESC&amp;resultCnt=10&amp;&amp;onlyTitleSrchYn=N', 'empDtlType'); }); $(this).css('color', '#8390B6'); return false;" href="/empInfo/empInfoSrch/detail/retrivePriEmpDtlView.do?searchInfoType=CSI&amp;iorgGbcd=CSI&amp;callPage=detail&amp;wantedAuthNo=48520360&amp;rtnTarget=list1&amp;pageIndex=1&amp;rtnUrl=/empInfo/empInfoSrch/list/dtlEmpSrchList.do?len=0&amp;regionArr=[Ljava.lang.String;@57a3bd0c&amp;pageSize=10&amp;firstIndex=1&amp;lastIndex=1&amp;recordCountPerPage=10&amp;siteClcd=all&amp;benefitSrchAndOr=O&amp;areaRegion=11000&amp;areaArc=1&amp;codeDepth1Info=11000&amp;codeDepth2Info=11000&amp;srchJobNum=0&amp;empTpGbcd=1&amp;sortField=DATE&amp;sortOrderBy=DESC&amp;resultCnt=10&amp;&amp;onlyTitleSrchYn=N">
-                                                    [연봉3,600/주6일]케이스 식자재 마트 정육파트 정규직 사원모집
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <p>서울시</p>
-                                            </td>
-                                            <td>
-                                                <p>주 5일</p>
-                                            </td>
-                                            <td>
-                                                <p>24/07/31 마감</p>
-                                            </td>
-                                        </tr>
+                                        {% for row in data %}
+                                            <tr id ="list{{ loop.index }}">
+                                                <td>{{row.job_index}}</td>
+                                                <td>
+                                                    <a href="" onclick="try { latte.getEvent(event).stop(); } catch (ex) {}; NetFunnel_Action({action_id:'EmpInfoDetail'}, function(ev,ret){ window.open('/empInfo/empInfoSrch/detail/retrivePriEmpDtlView.do?searchInfoType=CSI&amp;iorgGbcd=CSI&amp;callPage=detail&amp;wantedAuthNo=48520360&amp;rtnTarget=list1&amp;pageIndex=1&amp;rtnUrl=/empInfo/empInfoSrch/list/dtlEmpSrchList.do?len=0&amp;regionArr=[Ljava.lang.String;@57a3bd0c&amp;pageSize=10&amp;firstIndex=1&amp;lastIndex=1&amp;recordCountPerPage=10&amp;siteClcd=all&amp;benefitSrchAndOr=O&amp;areaRegion=11000&amp;areaArc=1&amp;codeDepth1Info=11000&amp;codeDepth2Info=11000&amp;srchJobNum=0&amp;empTpGbcd=1&amp;sortField=DATE&amp;sortOrderBy=DESC&amp;resultCnt=10&amp;&amp;onlyTitleSrchYn=N', 'empDtlType'); }); $(this).css('color', '#8390B6'); return false;">
+                                                        {{row.job_title}}
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <p>{{row.job_region}}</p>
+                                                </td>
+                                                <td>
+                                                    <p>{{row.job_employmentType}}</p>
+                                                </td>
+                                                <td>
+                                                    {% if row.job_deadline == 30000000 %}
+                                                        <p>채용시까지</p>
+                                                    {% else %}
+                                                        <p>{{ row.formatted_deadline }}</p>
+                                                    {% endif %}
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
                                     </tbody>
                                 </table>
                             </div>
