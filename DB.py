@@ -7,7 +7,8 @@ db = pymysql.connect(host='localhost',
                      user='root',
                      password='!@rain1215@!',
                      db='saeillo_db',
-                     charset='utf8')
+                     charset='utf8',
+                     cursorclass=pymysql.cursors.DictCursor )
 
 cursor = db.cursor()
 
@@ -34,5 +35,15 @@ def delete_db():
     cursor.execute(delete_sql)
     db.commit()
 
+def get_data_full(full_sql):
+    try:
+        cursor.execute(full_sql)
+        data = cursor.fetchall()
+        print(data)
+        return data
+    finally:
+        db.close()
+
+
 if __name__ == "__main__":
-    delete_db()
+    get_data_full()
