@@ -1,10 +1,4 @@
-/*!
-* Start Bootstrap - Heroic Features v5.0.6 (https://startbootstrap.com/template/heroic-features)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-heroic-features/blob/master/LICENSE)
-*/
-// This file is intentionally blank
-// Use this f//지역 보여주기
+//지역 보여주기
 var cat1_num = new Array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17);
 var cat1_name = new Array('서울','부산','대구','인천','광주','대전','울산','세종','경기','충북','충남','전남','경북','경남','제주','강원','전북');
 
@@ -33,7 +27,7 @@ cat2_num[7] = new Array(87,88,89,90,91);
 cat2_name[7] = new Array('울산 남구','울산 동구','울산 북구','울산 울주군','울산 중구');
 
 cat2_num[8] = new Array(92);
-cat2_name[8] = new Array('전체');
+cat2_name[8] = new Array('세종');
 
 cat2_num[9] = new Array(93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143);
 cat2_name[9] = new Array('경기 가평군','경기 고양시','경기 고양시 덕양구','경기 고양시 일산동구','경기 고양시 일산서구','경기 과천시','경기 광명시','경기 광주시','경기 구리시','경기 군포시','경기 김포시','경기 남양주시','경기 동두천시','경기 부천시','경기 부천시 소사구','경기 부천시 오정구','경기 부천시 원미구','경기 성남시','경기 성남시 분당구','경기 성남시 수정구','경기 성남시 중원구','경기 수원시','경기 수원시 권선구','경기 수원시 장안구','경기 수원시 영통구','경기 수원시 장안구','경기 수원시 팔달구','경기 시흥시','경기 안산시','경기 안산시 단원구','경기 안산시 상록구','경기 안성시','경기 안양시','경기 안양시 동안구','경기 안양시 만안구','경기 양주시','경기 양평군','경기 여주시','경기 연천군','경기 오산시','경기 용인시','경기 용인시 기흥구','경기 용인시 수지구','경기 용인시 처인구','경기 의왕시','경기 의정부시','경기 이천시','경기 파주시','경기 평택시','경기 포천시','경기 하남시','경기 화성시');
@@ -73,7 +67,7 @@ function cat1_change( target_value) {
         cat2_name[target_value].forEach(function(name) {
             var li = document.createElement("li");
 
-
+            // 시에 따른 구,군 버튼 생성
             var button = document.createElement("button");
             button.type = "button";
             button.className = "btn";
@@ -103,4 +97,3 @@ function checkOnlyOne(element) {
 
     element.checked = true;
 }
-ile to add JavaScript to your project

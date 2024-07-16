@@ -11893,15 +11893,17 @@ li{
 
 .region_column {
   width: 250px;
+
 }
 
 .district_column {
   width: 700px;
+
 }
 
 /*시 선택*/
 .region_list{
-  overflow: hidden;
+
   padding: 0;
   margin: 0;
   border-right: 3px solid #e5ecf1;
@@ -11914,10 +11916,11 @@ li{
 }
 /*구, 군 선택*/
 .region_list_2{
-  overflow: hidden;
+  align-content:first baseline;
+  overflow: auto;
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  height: 380px;
   display: flex;
   flex-wrap: wrap;
   unicode-bidi: isolate;
