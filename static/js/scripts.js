@@ -97,3 +97,7 @@ function checkOnlyOne(element) {
 
     element.checked = true;
 }
+
+function page_dafault_zoom(){
+    document.body.style.zoom = 75+"%";
+}

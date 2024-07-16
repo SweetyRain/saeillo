@@ -2,24 +2,24 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=0.7, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>새일로</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" />
+        <!-- 수정 Favicon 부분 삭제(필요없음)-->
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link rel="stylesheet" href= "{{ url_for('static', filename='css/styles.css') }}"  />
-
+        <!--java script-->
+        <script src="saeilo.js" defer></script>
     </head>
     <body>
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-styleBlue">
             <div class="container px-lg-5">
                 <!--css 중장년 고용24 색상-->
-                <a class="navbar-brand" href="#!">새일로</a>
+                <a class="navbar-brand" href="/main">새일로</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -52,10 +52,10 @@
                 <div class="row gx-lg-5">
                     <div class="col-lg-6 col-xxl-4 mb-5">
                         <!--css small card body 색상-->
-                        <div class="card bg-styleBlue_light_fourth border-0 h-100">
-                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                        <div class="card bg-styleBlue_light_second border-0 h-100">
+                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0" onClick="location.href='/personal'">
                                 <!--첫째 칸 아이콘-->
-                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-person-lines-fill"></i></div>
+                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-person-lines-fill"  onClick="location.href='/personal'"></i></div>
                                 <h2 class="fs-4 fw-bold">맞춤 일자리 추천</h2>
                                 <p class="mb-0">사용자 정보 기반 맞춤 직업 및 프로그램 추천</p>
                             </div>
@@ -63,21 +63,21 @@
                     </div>
                     <div class="col-lg-6 col-xxl-4 mb-5">
                         <!--css small card body 색상-->
-                        <div class="card bg-styleBlue_light_fourth border-0 h-100">
-                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                        <div class="card bg-styleBlue_light_third border-0 h-100">
+                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0" onClick="location.href='/category'">
                                 <!--둘째 칸 아이콘-->
-                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-ui-checks-grid"></i></div>
-                                <h2 class="fs-4 fw-bold">카테고리 일자리 추천</h2>
+                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-ui-checks-grid"  onClick="location.href='/category'"></i></div>
+                                <h2 class="fs-4 fw-bold">유형별 일자리 추천</h2>
                                 <p class="mb-0">원하는 분야 선택 후 관련 직업 및 프로그램 추천(원하는 분야 맞춰서 우선 순위 높은 대로, 2순위 우선 순위는 지역)</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-xxl-4 mb-5">
                         <!--css small card body 색상-->
-                        <div class="card bg-styleBlue_light_fourth border-0 h-100">
-                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                        <div class="card bg-styleBlue_light_fourth border-0 h-100" >
+                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0"  onClick="location.href='/region'">
                                 <!--셋째 칸 아이콘-->
-                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-geo-alt"></i></i></div>
+                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-geo-alt"  onClick="location.href='/region'"></i></i></div>
                                 <h2 class="fs-4 fw-bold">지역 일자리 추천</h2>
                                 <p class="mb-0">사용자가 선택한 지역 기반 추천</p>
                             </div>
@@ -85,10 +85,10 @@
                     </div>
                     <div class="col-lg-6 col-xxl-4 mb-5">
                         <!--css small card body 색상-->
-                        <div class="card bg-styleBlue_light_second border-0 h-100">
-                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                        <div class="card bg-styleGreen_light_fifth border-0 h-100">
+                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0" onClick="location.href='/full'">
                                 <!--넷째 칸 아이콘-->
-                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-list-ul"></i></div>
+                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-list-ul"  onClick="location.href='/full'"></i></div>
                                 <h2 class="fs-4 fw-bold">전체 일자리 정보</h2>
                                 <p class="mb-0">일자리 정보 소개</p>
                             </div>

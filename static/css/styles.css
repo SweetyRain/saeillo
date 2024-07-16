@@ -8360,37 +8360,37 @@ textarea.form-control-lg {
 
 }
 
-/*small card body 색상*/
+/*small card body , 맞춤 칸 색상*/
 .bg-styleBlue_light_second{
-  --bs-bg-opacity: 1;
-  background-color: rgba(234, 237, 240, var(--bs-bg-opacity)) !important;
+  --bs-bg-opacity: 0.3;
+  background-color: rgba(52, 125, 166, var(--bs-bg-opacity)) !important;
 }
 
-/*small card body 색상*/
+/*small card body, 유형별 칸 색상*/
 .bg-styleBlue_light_third{
-  --bs-bg-opacity: 1;
-  background-color: rgba(240, 242, 248, var(--bs-bg-opacity)) !important;
+  --bs-bg-opacity: 0.45;
+  background-color: rgba(169, 208, 230, var(--bs-bg-opacity)) !important;
 }
 
-/*small card body 색상*/
+/*small card body 색상, 지역 칸 색상*/
 .bg-styleBlue_light_fourth{
-  --bs-bg-opacity: 1;
-  background-color: rgba(215, 241, 249, var(--bs-bg-opacity)) !important;
+  --bs-bg-opacity: 0.5;
+  background-color: rgba(205, 211, 223, var(--bs-bg-opacity)) !important;
 }
-/*small card body 색상*/
+/*small card body, 전체 칸 색상*/
 .bg-styleGreen_light_fifth{
-  --bs-bg-opacity: 1;
-  background-color: rgba(215, 249, 235, var(--bs-bg-opacity)) !important;
+  --bs-bg-opacity: 0.4;
+  background-color: rgba(147, 150, 184, var(--bs-bg-opacity)) !important;
 }
-/*small card body 색상*/
+/*small card body 색상, 고용 도움 프로그램 색상*/
 .bg-styleYellow_light_sixth{
-  --bs-bg-opacity: 1;
-  background-color: rgba(253, 247, 212, var(--bs-bg-opacity)) !important;
+  --bs-bg-opacity: 0.5;
+  background-color: rgba(212, 202, 226, var(--bs-bg-opacity)) !important;
 }
-/*small card body 색상*/
+/*small card body 색상, 공지사항 색상*/
 .bg-stylePink_light_seventh{
-  --bs-bg-opacity: 1;
-  background-color: rgba(253, 242, 242, var(--bs-bg-opacity)) !important;
+  --bs-bg-opacity: 0.5;
+  background-color: rgba(230, 220, 251, var(--bs-bg-opacity)) !important;
 }
 
 .bg-dark {
