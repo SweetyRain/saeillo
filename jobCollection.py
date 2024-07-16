@@ -60,6 +60,8 @@ def parse_data(div, deadline, check_div):
             categorie = "요양"
         elif "경비" in name or "보안" in name:
             categorie = "경비"
+        elif "미화" in name:
+            categorie = "미화"
         else:
             categorie = "기타"
 
