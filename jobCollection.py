@@ -145,19 +145,24 @@ def insert_data():
                 region = detail[2][:index]
             else: region = detail[2]
 
+            region_except = ["구로구", "구미시"]
+
             #지역 요약을 위한 예외 처리
-            if "구로구" in region:
-                index = region.find("구")
-                jobData["region"] = region[:index + 3]
-            elif "구" in region:
-                index = region.find("구")
-                jobData["region"] = region[:index+1]
-            elif "로" in region:
-                index = region.find("로")
-                jobData["region"] = region[:index+1]
-            elif "군" in region:
-                index = region.find("군")
-                jobData["region"] = region[:index + 1]
+            for exception in region_except:
+                if exception in region:
+                    index = region.find(exception)
+                    jobData["region"] = region[:index + len(exception)]
+                    break
+            else:
+                if "구" in region:
+                    index = region.find("구")
+                    jobData["region"] = region[:index + 1]
+                elif "로" in region:
+                    index = region.find("로")
+                    jobData["region"] = region[:index + 1]
+                elif "군" in region:
+                    index = region.find("군")
+                    jobData["region"] = region[:index + 1]
 
             jobData["startday"] = startline
             jobData["dday"] = dday
