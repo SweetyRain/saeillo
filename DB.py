@@ -13,12 +13,16 @@ db = pymysql.connect(host='localhost',
 cursor = db.cursor()
 
 def input_db(jobData):
-    insert_sql = ("INSERT INTO announcement (job_title, job_link, job_categorie, job_region, job_startline, job_deadline, "
-                  "job_career, job_education, job_pay, job_employmentType, job_worktype, job_welfare) "
-                  "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
-    cursor.execute(insert_sql, (jobData['name'], jobData['href'], jobData['categorie'], jobData['region'], jobData['startday'], jobData['dday'], jobData['career'],
-                                jobData['Education'], jobData['pay'], jobData['employmentType'], jobData['workType'], jobData['welfare']))
-    db.commit()
+    #DB 수용 길이 넘어가는 공고 삽입하지 않음
+    if len(jobData['href']) <= 400:
+        insert_sql = ("INSERT INTO announcement (job_title, job_link, job_categorie, job_region, job_startline, job_deadline, "
+                      "job_career, job_education, job_pay, job_employmentType, job_worktype, job_welfare) "
+                      "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
+        cursor.execute(insert_sql, (jobData['name'], jobData['href'], jobData['categorie'], jobData['region'], jobData['startday'], jobData['dday'], jobData['career'],
+                                    jobData['Education'], jobData['pay'], jobData['employmentType'], jobData['workType'], jobData['welfare']))
+        db.commit()
+    else:
+        print(jobData['name'], "DB 삽입 실패\n", jobData['href'])
 
 #데이터 삭제를 위한 오늘 날짜 구하기
 now = datetime.datetime.today()
