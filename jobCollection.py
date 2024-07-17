@@ -210,7 +210,7 @@ def insert_data():
                 jobData["pay"] = int(re.sub(r'[^0-9]', '', detail[3][2:5]) + "0000")
 
             elif "연봉" in detail[3]:
-                jobData["pay"] = int(re.sub(r'[^0-9]', '', detail[3][2:5])) // 12
+                jobData["pay"] = int(re.sub(r'[^0-9]', '', detail[3]) + "0000") // 12
 
             # 시급으로 표기된 경우
             else:

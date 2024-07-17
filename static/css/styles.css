@@ -540,9 +540,10 @@ progress {
 }
 
 .display-5 {
-  font-size: calc(1.425rem + 2.1vw);
+  font-size: calc(1.425rem + 2vw + 22px);
   font-weight: 300;
   line-height: 1.2;
+
 }
 @media (min-width: 1200px) {
   .display-5 {
@@ -2859,11 +2860,11 @@ textarea.form-control-lg {
 
 .btn-primary {
   --bs-btn-color: #fff;
-  --bs-btn-bg: #41506E;
-  --bs-btn-border-color: #41506E;
+  --bs-btn-bg: #5F7CA9; opacity:1;
+
   --bs-btn-hover-color: #fff;
   --bs-btn-hover-bg: #0b5ed7;
-  --bs-btn-hover-border-color: #0a58ca;
+
   --bs-btn-focus-shadow-rgb: 49, 132, 253;
   --bs-btn-active-color: #fff;
   --bs-btn-active-bg: #0a58ca;
@@ -2877,6 +2878,8 @@ textarea.form-control-lg {
   padding: 0.55em 0.75em; /* 상하 패딩 15px, 좌우 패딩 30px */
   font-size: calc(0.425rem + 2vw); /* 텍스트 크기 조정 */
   border-radius: 10px; /* 버튼의 모서리 둥글게 */
+  min-height: 80px;
+  min-width:120px;
 
 }
 
@@ -8354,9 +8357,11 @@ textarea.form-control-lg {
 
 /*추천 선택 박스*/
 .bg-styleBlue_light_select{
-  --bs-bg-opacity: 0.3;
+  --bs-bg-opacity: 0.7;
   background-color: #ffffff; /* 박스의 배경을 흰색으로 설정 */
   border: 0.28em solid rgba(102, 123, 168, var(--bs-bg-opacity)); /* 테두리 설정 */
+  min-height:100px;
+  min-width:1000px;
 
 }
 
@@ -11668,6 +11673,8 @@ table {
 .table-wrap{
   position: relative;
   border-top: 2px solid #00182e;
+  min-height:100px;
+  min-width:1000px;
 }
 table th {
   border-bottom: 2px solid var(--bs-gray-300);

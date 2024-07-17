@@ -12,7 +12,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link rel="stylesheet" href= "{{ url_for('static', filename='css/styles.css') }}"  />
         <!--java script-->
-        <script src="{{ url_for('static', filename='js/saeilo.js') }}" defer></script>
+        <script src="{{ url_for('static', filename='js/scripts.js') }}" defer></script>
     </head>
     <body>
         <!-- Responsive navbar-->
@@ -68,20 +68,20 @@
                             <!-- 결과를 여기에 표시할 div -->
                             <div id="resultBox" class="table-wrap">
                                 <table class="board-list">
-                                    <colgroup>
+                                   <colgroup>
+                                        <col style="width:1.5em;margin:0.4em;">
+                                        <col style="width:18em;margin:1.5em;">
+                                        <col style="width:7em;margin:1.5em;">
+                                        <col style="width:4.5em;margin:1.5em;">
                                         <col style="width:4em;">
-                                        <col style="width:24em;">
-                                        <col style="width:5em;">
-                                        <col style="width:5em;">
-                                        <col style="width:5em;">
                                     </colgroup>
                                     <thead>
                                         <tr>
-                                            <th scope="col">번호</th>
-                                            <th scope="col">채용공고명/담당업무</th>
-                                            <th scope="col">지역</th>
-                                            <th scope="col">근무조건</th>
-                                            <th scope="col">마감일</th>
+                                            <th scope="col" style="text-align: center;"></th>
+                                            <th scope="col" style="text-align: center;">채용공고명/담당업무</th>
+                                            <th scope="col" style="text-align: center;">지역</th>
+                                            <th scope="col" style="text-align: center;">근무조건</th>
+                                            <th scope="col" style="text-align: center;">마감일</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -93,18 +93,18 @@
                                                         {{row.job_title}}
                                                     </a>
                                                 </td>
-                                                <td>
-                                                    <p>{{row.job_region}}</p>
+                                                <td style="text-align: center;">
+                                                    <span>{{row.job_region}}</span>
                                                 </td>
-                                                <td>
-                                                    <p>{{row.job_employmentType}}</p><!--주 몇일 근무인지로 변경해야함  -->
-                                                    <p>{{row.job_pay}}</p> <!--임금으로 변경해야함  -->
+                                                <td style="text-align: center;">
+                                                    <span style="padding=0;">{{row.job_workType}}<br></span><!--주 몇일 근무인지로 변경해야함  -->
+                                                    <span style="padding=0;">{{row.formatted_pay}}</span> <!--임금으로 변경해야함  -->
                                                 </td>
-                                                <td>
+                                                <td tyle="text-align: center;">
                                                     {% if row.job_deadline == 30000000 %}
-                                                        <p>채용시까지</p>
+                                                        <span>채용시까지</span>
                                                     {% else %}
-                                                        <p>{{ row.formatted_deadline }}</p>
+                                                        <span>{{ row.formatted_deadline }}</span>
                                                     {% endif %}
                                                 </td>
                                             </tr>
