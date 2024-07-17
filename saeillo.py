@@ -70,5 +70,14 @@ def category_page():
     return render_template('category.html', data=paginated_data, has_prev=has_prev, has_next=has_next, page=page,
                            page_numbers=page_numbers, total_pages=total_pages)
 
+
+@app.route('/region')
+def region_page():
+    return render_template('region.html')
+
+@app.route('/personal')
+def personal_page():
+    return render_template('personal.html')
+
 if __name__ == "__main__":
     app.run()
