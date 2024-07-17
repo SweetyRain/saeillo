@@ -98,6 +98,21 @@ function checkOnlyOne(element) {
     element.checked = true;
 }
 
-function page_dafault_zoom(){
-    document.body.style.zoom = 75+"%";
+
+function fn_SearchReset() {
+
+   const form = document.getElementById('personal_form');
+   const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+   // 체크박스를 하나씩 순회하며 선택을 해제합니다.
+   checkboxes.forEach(checkbox => {
+       checkbox.checked = false;
+   });
+
+   const region_checkboxes
+        = document.getElementsByName("region_1");
+
+        region_checkboxes.forEach((cb) => {
+        cb.checked = false;
+    })
+
 }
