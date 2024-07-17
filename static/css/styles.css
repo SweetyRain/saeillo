@@ -11677,7 +11677,7 @@ table {
   min-width:1000px;
 }
 table th {
-  border-bottom: 2px solid var(--bs-gray-300);
+
   display: table-cell;
   vertical-align: inherit;
   height: 3rem;
@@ -11688,7 +11688,7 @@ table th {
 }
 
 table tbody tr {
-  border-bottom: 2px solid var(--bs-gray-300);
+
   vertical-align: inherit;
   height: 1.35rem;
   font-size: 1.33rem;
@@ -11957,3 +11957,6 @@ li{
   color: #0066cc !important; /* 마우스를 올렸을 때의 텍스트 색상: 파란색 */
 }
 
+.cursor_use{
+  cursor: pointer;
+}
