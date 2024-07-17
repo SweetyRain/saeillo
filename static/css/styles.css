@@ -8361,7 +8361,7 @@ textarea.form-control-lg {
   background-color: #ffffff; /* 박스의 배경을 흰색으로 설정 */
   border: 0.28em solid rgba(102, 123, 168, var(--bs-bg-opacity)); /* 테두리 설정 */
   min-height:100px;
-  min-width:1000px;
+  min-width:1030px;
 
 }
 
@@ -11674,7 +11674,7 @@ table {
   position: relative;
   border-top: 2px solid #00182e;
   min-height:100px;
-  min-width:1000px;
+  min-width:1030px;
 }
 table th {
 
@@ -11904,7 +11904,7 @@ li{
 }
 
 .district_column {
-  width: 700px;
+  width: 730px;
 
 }
 
@@ -11938,7 +11938,10 @@ li{
 
 .region_list_2 li{
   padding: 0;
-  margin: 0;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 10px;
   list-style: none;      /* 리스트 스타일 제거 */
 }
 
@@ -11956,7 +11959,28 @@ li{
 .region_list>li:cli {
   color: #0066cc !important; /* 마우스를 올렸을 때의 텍스트 색상: 파란색 */
 }
+/* 마우스를 올렸을 때 링크 색상 변경 */
+.region_list_2>li:hover {
+  color: #0066cc !important; /* 마우스를 올렸을 때의 텍스트 색상: 파란색 */
+}
+
+/* 마우스를 클릭 때 링크 색상 변경 */
+.region_list_2>li:cli {
+  color: #0066cc !important; /* 마우스를 올렸을 때의 텍스트 색상: 파란색 */
+}
 
 .cursor_use{
   cursor: pointer;
+}
+
+.per_region_tit{
+  display: flex;
+  text-align: left;
+  font-size: 1.8em;
+  font-weight: 600;
+  line-height: 2.4em;
+  color: #51585e;
+  margin-left: 4px ;
+  padding: 0 ;
+  border: 0;
 }

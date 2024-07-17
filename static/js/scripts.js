@@ -73,7 +73,7 @@ function cat1_change( target_value) {
             button.className = "btn";
             button.value = name;
             button.textContent = name;
-
+            button.style ="width:170px;height:80px;"
             li.appendChild(button);
             target.appendChild(li);
         });

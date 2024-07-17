@@ -63,6 +63,85 @@
                                         <h1 class="display-5 fw-bold">맞춤 일자리 추천</h1>
                                         <br><br>
                                         <ul><!-- 폼 -->
+                                             <!--지역 선택-->
+                                            <span class="per_region_tit">지역 선택</span>
+                                            <li class="region-btn-container" style="display: block;">
+
+                                                <div class="cont_region">
+                                                    <div id="jobCatelocation01" style class ="box_chk_group">
+                                                        <div class="box_table_wrap">
+                                                            <!--table-->
+                                                            <table class="box_table">
+                                                                <tr>
+                                                                    <td class="region_column">
+                                                                        <!--시 선택-->
+                                                                        <ul class="region_list" id="fr1">
+                                                                            <li >
+                                                                                <button type="button" value="1" name ="region_1" class="btn" onclick="checkOnlyOne(this), cat1_change(this.value)">서울</button>
+                                                                            </li>
+                                                                            <li>
+                                                                                <button type="button" value="2" name ="region_1" class="btn" onclick="checkOnlyOne(this),cat1_change(this.value)">부산</button>
+                                                                            </li>
+                                                                            <li >
+                                                                                <button type="button" value="3" name ="region_1" class="btn" onclick="checkOnlyOne(this),cat1_change(this.value)">대구</button>
+                                                                            </li>
+                                                                            <li >
+                                                                                <button type="button" value="4" name ="region_1" class="btn" onclick="checkOnlyOne(this),cat1_change(this.value)">인천</button>
+                                                                            </li>
+                                                                            <li>
+                                                                                <button type="button" value="5" name ="region_1" class="btn" onclick="checkOnlyOne(this),cat1_change(this.value)">광주</button>
+                                                                            </li>
+                                                                            <li>
+                                                                                <button type="button" value="6" name ="region_1" class="btn" onclick="checkOnlyOne(this),cat1_change(this.value)">대전</button>
+                                                                            </li>
+                                                                            <li>
+                                                                                <button type="button" value="7" name ="region_1" class="btn" onclick="checkOnlyOne(this),cat1_change(this.value)">울산</button>
+                                                                            </li>
+                                                                            <li>
+                                                                                <button type="button" value="8" name ="region_1" class="btn" onclick="checkOnlyOne(this),cat1_change(this.value)">세종</button>
+                                                                            </li>
+                                                                            <li>
+                                                                                <button type="button" value="9" name ="region_1" class="btn" onclick="checkOnlyOne(this),cat1_change(this.value)">경기</button>
+                                                                            </li>
+                                                                            <li>
+                                                                                <button type="button" value="10" name ="region_1" class="btn" onclick="checkOnlyOne(this),cat1_change(this.value)">충북</button>
+                                                                            </li>
+                                                                            <li>
+                                                                                <button type="button" value="11" name ="region_1" class="btn" onclick="checkOnlyOne(this),cat1_change(this.value)">충남</button>
+                                                                            </li>
+                                                                            <li>
+                                                                                <button type="button" value="12" name ="region_1" class="btn" onclick="checkOnlyOne(this),cat1_change(this.value)">전남</button>
+                                                                            </li>
+                                                                            <li>
+                                                                                <button type="button" value="13" name ="region_1" class="btn" onclick="checkOnlyOne(this),cat1_change(this.value)">경북</button>
+                                                                            </li>
+                                                                            <li>
+                                                                                <button type="button" value="14" name ="region_1" class="btn" onclick="checkOnlyOne(this),cat1_change(this.value)">경남</button>
+                                                                            </li>
+                                                                            <li>
+                                                                                <button type="button" value="15" name ="region_1" class="btn" onclick="checkOnlyOne(this),cat1_change(this.value)">제주</button>
+                                                                            </li>
+                                                                            <li>
+                                                                                <button type="button" value="16" name ="region_1" class="btn" onclick="checkOnlyOne(this),cat1_change(this.value)">강원</button>
+                                                                            </li>
+                                                                            <li>
+                                                                                <button type="button" value="17" name ="region_1" class="btn" onclick="checkOnlyOne(this),cat1_change(this.value)">전북</button>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </td>
+                                                                    <td class="district_column">
+                                                                        <!--구, 군 선택-->
+                                                                        <ul class="region_list_2" id="district-buttons">
+                                                                        </ul>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <br>
+
                                             <!--고용형태-->
                                             <li class="personal-btn-container">
                                                 <span class="personal_tit">고용형태</span>
