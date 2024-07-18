@@ -12025,3 +12025,17 @@ li{
 
 }
 
+.notice_tit {
+  font-size: 1.7em;
+}
+
+.notice_info{
+  font-size: 1.7em;
+}
+.notice_cont{
+  font-size: 1.7em;
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  overflow: auto;
+}
