@@ -4,14 +4,14 @@ from bs4 import BeautifulSoup
 from DB import input_db
 import datetime
 from datetime import timedelta
+from exceptList import middle_except, top_except, administrative_district
 
 
 # 지역 띄어쓰기 삽입
 def city_district(address):
     parts = ["도", "시", "구", "로", "길"]
-    region_except = ["대구광역시", "구로구", "구미시", "시흥시", "구리시", "종로구"]
 
-    for exception in region_except:
+    for exception in middle_except:
         if exception in address:
             index = address.index(exception[0])
             region = address[:index] + " " + address[index:index + len(exception)] + " " + address[index + len(exception):]
@@ -187,11 +187,14 @@ def insert_data():
             else:
                 region = detail[2]
 
-            region_except = ["구로구", "구미시", "시흥시", "대구광역시", "구리시"]
+            for ad in administrative_district:
+                if ad in region:
+                    region = region.strip(ad)
+
             exception_handled = False # 지역 예외 처리 여부 표시
 
             # 지역 요약을 위한 예외 처리
-            for exception in region_except:
+            for exception in middle_except:
                 if exception in region:
                     index = region.find(exception)
                     region = region[:index + len(exception)]

@@ -8,7 +8,7 @@ db = pymysql.connect(host='localhost',
                      password='!@rain1215@!',
                      db='saeillo_db',
                      charset='utf8',
-                     cursorclass=pymysql.cursors.DictCursor )
+                     cursorclass=pymysql.cursors.DictCursor)
 
 cursor = db.cursor()
 
