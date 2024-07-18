@@ -67,7 +67,6 @@ function cat1_change( target_value) {
         cat2_name[target_value].forEach(function(name) {
             var li = document.createElement("li");
 
-
             // 시에 따른 구,군 버튼 생성
             var button = document.createElement("button");
             button.type = "button";
@@ -77,7 +76,7 @@ function cat1_change( target_value) {
             button.style ="width:170px;height:80px;"
             button.onclick = function() {
                 cat2_change(button.value);
-                checkOnlyOne(button);
+
             };
             li.appendChild(button);
             target.appendChild(li);
@@ -90,7 +89,10 @@ function cat1_change( target_value) {
 
 function cat2_change(cat2_value) {
     console.log(cat2_value);  // 선택한 구/군 값으로 원하는 작업을 수행할 수 있습니다.
+    document.getElementById('selected_region').value = cat2_value;  // 숨겨진 입력 필드의 값을 업데이트
+
 }
+
 
 function checkOnlyOne(element) {
 
