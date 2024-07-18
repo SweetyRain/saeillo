@@ -50,7 +50,6 @@ def get_data(sql):
         with db.cursor(pymysql.cursors.DictCursor) as cursor:
             cursor.execute(sql)
             result = cursor.fetchall()
-            print("result타입", type(result))
             return result
     except Exception as e:
         print(f"Error fetching data from database: {e}")

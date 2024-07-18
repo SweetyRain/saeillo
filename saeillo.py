@@ -18,6 +18,10 @@ def format_pay(pay):
     format_pay = f'월 {pay} 만원'
     return format_pay
 
+def format_worktype(worktype):
+    format_worktype = f'주 {worktype}일 근무'
+    return format_worktype
+
 # 페이지네이션을 위한 함수
 # def paginate_data(data, page, per_page):
 #     total_items = len(data)
@@ -43,12 +47,13 @@ def renework(name = None):
 
 @app.route('/full')
 def full_page():
-    full_sql = "SELECT job_index, job_title, job_link, job_region, job_deadline, job_workType, job_pay FROM announcement"
+    full_sql = "SELECT job_index, job_title, job_link, job_region, job_deadline, job_worktype, job_pay FROM announcement"
     data = get_data(full_sql)
 
     for row in data:
         row['formatted_deadline'] = format_deadline(row['job_deadline'])
         row['formatted_pay'] = format_pay(row['job_pay'])
+        row['formatted_worktype'] = format_worktype(row['job_worktype'])
 
     return render_template('full.html', data=data)
 @app.route('/category')
@@ -62,6 +67,7 @@ def category_page():
     for row in data:
         row['formatted_deadline'] = format_deadline(row['job_deadline'])
         row['formatted_pay'] = format_pay(row['job_pay'])
+        row['formatted_worktype'] = format_worktype(row['job_worktype'])
 
     #count_sql = f"SELECT COUNT(*) FROM announcement WHERE job_categorie = '{value}'"
 
@@ -71,15 +77,28 @@ def category_page():
 def region_page():
     value = request.args.get('value', default='서울 강남구', type=str)
     print(value)
-    address1, address2 = value.split()
-    region_sql = (
-        f"SELECT job_index, job_title, job_link, job_region, job_deadline, job_worktype, job_pay FROM announcement WHERE job_fullregion = '%{address2}%'")
+    address = list(value.split())
+    if len(address) == 1:
+        region_sql = (
+            f"SELECT job_index, job_title, job_link, job_region, job_deadline, job_worktype, job_pay FROM announcement "
+            f"WHERE job_fullregion LIKE '%{address[0]}%''")
+
+    elif len(address) == 2:
+        region_sql = (
+            f"SELECT job_index, job_title, job_link, job_region, job_deadline, job_worktype, job_pay FROM announcement "
+            f"WHERE job_fullregion LIKE '%{address[0]}%' AND job_fullregion LIKE '%{address[1]}%'")
+
+    else:
+        region_sql = (
+            f"SELECT job_index, job_title, job_link, job_region, job_deadline, job_worktype, job_pay FROM announcement "
+            f"WHERE job_fullregion LIKE '%{address[0]}%' AND job_fullregion LIKE '%{address[1]}%' AND job_fullregion LIKE '%{address[2]}%'")
 
     data = get_data(region_sql)
-
+    print(data)
     for row in data:
         row['formatted_deadline'] = format_deadline(row['job_deadline'])
         row['formatted_pay'] = format_pay(row['job_pay'])
+        row['formatted_worktype'] = format_worktype(row['job_worktype'])
 
     # count_sql = f"SELECT COUNT(*) FROM announcement WHERE job_categorie = '{value}'"
 
@@ -88,6 +107,21 @@ def region_page():
 @app.route('/personal')
 def personal_page():
     return render_template('personal.html')
+
+@app.route('/detail/<int:index>')
+def detail_page(index):
+    detail_sql = (f"SELECT * FROM announcement WHERE job_index = '{index}'")
+
+    data = get_data(detail_sql)
+    print(data)
+    for row in data:
+        row['formatted_deadline'] = format_deadline(row['job_deadline'])
+        row['formatted_pay'] = format_pay(row['job_pay'])
+        row['formatted_worktype'] = format_worktype(row['job_worktype'])
+
+    print(data)
+    return render_template('detail.html', data=data)
+
 
 if __name__ == "__main__":
     app.run()

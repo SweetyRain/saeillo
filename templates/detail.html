@@ -57,29 +57,31 @@
                             <!--css card body 색상-->
                             <div class="p-4 p-lg-4 bg-styleBlue_light_select rounded-3 text-center">
                                 <div class="m-4 m-lg-5">
-                                    <h1 class="display-5 fw-bold">  {{row.job_title}}</h1>
+                                    {% for row in data%}
+                                    <h1 class="display-5 fw-bold">{{ row.job_title }}</h1>
                                     <span class="display-6">{{ row.formatted_deadline }}<br><br></span>
 
-                                    <div class="form-check-reverse">
-                                        <button type="button" class="btn btn-outline-primary fw-bold " style="font-size:25px !important ;" >자세히</button>
-                                    </div>
+                                    <a href="{{row.job_link}}">
+                                        <div class="form-check-reverse">
+                                            <button type="button" class="btn btn-outline-primary fw-bold " style="font-size:25px !important ;" >자세히</button>
+                                        </div>
+                                    </a>
 
                                     <ul>
                                         <li class="personal-btn-container" style="height: 200px !important;">
                                             <span class="detail_sm_tit ">
                                                 <div>
                                                     지원자격
-
                                                 </div>
                                                 <div class="detail_sm_contents fw-bold" >
                                                     <span class="float-start">
                                                         <span>경력&nbsp;&nbsp;: &nbsp;</span>
-                                                        <span>{{row.job_career}} </span>
+                                                        <span>{{ row.job_career }} </span>
 
                                                     </span><br>
                                                     <span class="float-start">
                                                         <span>학력&nbsp;&nbsp;: &nbsp;</span>
-                                                        <span>{{row.job_education}} </span>
+                                                        <span>{{ row.job_education }} </span>
                                                     </span>
                                                 </div>
                                             </span>
@@ -87,39 +89,35 @@
                                             <span class="detail_sm_tit">
                                                 <div>
                                                     근무조건
-
                                                 </div>
                                                 <div class="detail_sm_contents fw-bold">
                                                     <span class="float-start">
                                                         <span>지역&nbsp;&nbsp;: &nbsp;</span>
-                                                        <span>{{row.job_region}} </span>
+                                                        <span>{{ row.job_region }} </span>
 
                                                     </span><br>
                                                     <span class="float-start">
                                                         <span>월급&nbsp;&nbsp;: &nbsp;</span>
-                                                        <span>{{row.formatted_pay}} </span>
+                                                        <span>{{ row.formatted_pay }} </span>
                                                     </span>
                                                 </div>
                                             </span>
-
                                         </li>
-
 
                                         <li class="personal-btn-container" style="height: 200px !important;">
                                             <span class="detail_sm_tit " >
                                                 <div>
                                                     고용형태
-
                                                 </div>
                                                 <div class="detail_sm_contents fw-bold" >
                                                     <span class="float-start">
                                                         <span>고용형태&nbsp;&nbsp;: &nbsp;</span>
-                                                        <span>{{row.job_employmentType}}</span>
+                                                        <span>{{ row.job_employmentType }}</span>
 
                                                     </span><br>
                                                     <span class="float-start">
                                                         <span>근무형태&nbsp;&nbsp;: &nbsp;</span>
-                                                        <span>{{row.job_workType}} </span>
+                                                        <span>{{ row.formatted_worktype }} </span>
                                                     </span>
                                                 </div>
                                             </span>
@@ -127,7 +125,6 @@
                                             <span class="detail_sm_tit">
                                                 <div>
                                                     복리후생
-
                                                 </div>
                                                 <div class="detail_sm_contents fw-bold">
                                                     <span class="float-start">
@@ -136,19 +133,15 @@
                                                     </span>
                                                 </div>
                                             </span>
-
                                         </li>
 
                                         <br><br><br><br>
                                     </ul>
-
-
+                                    {% endfor %}
 
                                 </div>
                             </div>
                             <br><br><br>
-
-
                         </div>
                     </div>
                 </div>
