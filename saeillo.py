@@ -54,7 +54,7 @@ def full_page():
 @app.route('/category')
 def category_page():
     value = request.args.get('value', default='조리', type=str)
-
+    print(value)
     category_sql = (f"SELECT job_index, job_title, job_link, job_region, job_deadline, job_worktype, job_pay FROM announcement WHERE job_categorie = '{value}'")
 
     data = get_data(category_sql)
