@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
-from DB import get_data
+from DB import get_data, insert_notice
 from datetime import datetime
 import requests
 
@@ -126,13 +126,27 @@ def detail_page(index):
 
 @app.route('/notice')
 def notice_page():
-    data = "aa"
-    return render_template('notice.html')
+    notice_sql = (f'SELECT notice_index, notice_title, notice_manager, notice_content, notice_registration FROM notice')
+    data = get_data(notice_sql)
 
-@app.route('/writenotice')
+    for row in data:
+        row['formatted_date'] = format_deadline(row['notice_registration'])
+
+    return render_template('notice.html', data=data)
+
+@app.route('/writenotice', methods = ['GET', 'POST'])
 def writenotice_page():
-    data = "aa"
-    return render_template('writeNotice.html', data=data)
+    now = datetime.today()
+    today = int(now.strftime('%Y%m%d'))
+    if request.method == 'POST':
+        title = request.form['title']
+        manager = request.form['manager']
+        password = request.form['password']
+        content = request.form['content']
+        registration_date = today
+        notice_data = {'title': title, 'manage': manager, 'password': password, 'content': content, 'registration_date':registration_date}
+        insert_notice(notice_data)
+    return render_template('writeNotice.html')
 
 
 if __name__ == "__main__":

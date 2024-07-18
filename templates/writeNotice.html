@@ -61,7 +61,7 @@
                             <div class="p-4 p-lg-4 bg-styleBlue_light_select rounded-3 text-center">
                                 <div class="m-4 m-lg-5">
                                     
-                                    <form class="form-check" action="submission_url" method="POST">
+                                    <form class="form-check" action="/writenotice" method="POST">
                                         <!-- 폼 -->
                                             <h1 class="display-5 fw-bold">게시글 작성</h1>
                                             <br><br>
@@ -69,22 +69,22 @@
                                             <div class="notice_tit">
                                                 <dl>
                                                     <span class="personal_tit">제목&nbsp;:&nbsp;&nbsp;</span>
-                                                    <span><input type="text" style="width: 24.5em;" placeholder="제목 입력"></span>
+                                                    <span><input type="text" name="title" style="width: 24.5em;" placeholder="제목 입력"></span>
                                                 </dl>
                                             </div>
                                            
                                             <div class="notice_info">
                                                 <span>
                                                     <span class="personal_tit">작성자&nbsp;:&nbsp;&nbsp;</span>
-                                                    <span><input type="text" style="width: 10em;" placeholder="작성자 입력">&nbsp;</span>
+                                                    <span><input type="text" name="manager" style="width: 10em;" placeholder="작성자 입력">&nbsp;</span>
                                                 </span> 
                                                 <span>
                                                     <span class="personal_tit">&nbsp;비밀번호</span>
-                                                    <span><input type="password" style="width: 8em;" placeholder="작성 코드 입력"></span>
+                                                    <span><input type="password" name="password" style="width: 8em;" placeholder="작성 코드 입력"></span>
                                                 </span><br><br>
                                             </div>
                                             <div class="notice_cont">
-                                                <textarea style="width: 28.2em; height:24em;" placeholder="내용 입력"></textarea>
+                                                <textarea name="content" style="width: 28.2em; height:24em;" placeholder="내용 입력"></textarea>
                                             </div>
                                         
                                             <div class="form-check-reverse" style="margin:20px; ">
