@@ -3004,8 +3004,8 @@ textarea.form-control-lg {
 }
 
 .btn-outline-primary {
-  --bs-btn-color: #0d6efd;
-  --bs-btn-border-color: #0d6efd;
+  --bs-btn-color: #4c45d2;
+  --bs-btn-border-color: #4c45d2;
   --bs-btn-hover-color: #fff;
   --bs-btn-hover-bg: #0d6efd;
   --bs-btn-hover-border-color: #0d6efd;
@@ -11998,3 +11998,29 @@ li{
   padding: 0 ;
   border: 0;
 }
+
+
+.detail_sm_tit{
+  text-align: center;
+  width: 50% !important;
+  font-weight: 600;
+  line-height: 3em;
+  color: #51585e;
+  margin: 35px ;
+  padding: 35px ;
+  border: 0;
+}
+
+.detail_sm_contents{
+  align-items: center;
+  display: block !important;
+  unicode-bidi: isolate !important;
+  word-break: break-all !important;
+  color: #333 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  font: 0.8em 'Pretendard'
+
+}
+
