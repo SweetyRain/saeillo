@@ -2,23 +2,29 @@ import pymysql
 import datetime
 from dateutil.relativedelta import relativedelta
 
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy import Table, MetaData
+from sqlalchemy import insert, delete
+
 db = pymysql.connect(host='localhost',
                      port=3306,
                      user='root',
-                     password='!@rain1215@!',
+                     password='!~rain1215~!',
                      db='saeillo_db',
                      charset='utf8',
-                     cursorclass=pymysql.cursors.DictCursor)
+                     cursorclass=pymysql.cursors.DictCursor
+                     )
 
-cursor = db.cursor()
+cursor = db.cursor(pymysql.cursors.DictCursor)
 
 def input_db(jobData):
     #DB 수용 길이 넘어가는 공고 삽입하지 않음
     if len(jobData['href']) <= 400:
-        insert_sql = ("INSERT INTO announcement (job_title, job_link, job_categorie, job_region, job_startline, job_deadline, "
+        insert_sql = ("INSERT INTO announcement (job_title, job_link, job_categorie, job_region, job_fullregion, job_startline, job_deadline, "
                       "job_career, job_education, job_pay, job_employmentType, job_worktype, job_welfare) "
-                      "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
-        cursor.execute(insert_sql, (jobData['name'], jobData['href'], jobData['categorie'], jobData['region'], jobData['startday'], jobData['dday'], jobData['career'],
+                      "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
+        cursor.execute(insert_sql, (jobData['name'], jobData['href'], jobData['categorie'], jobData['region'], jobData['fullregion'], jobData['startday'], jobData['dday'], jobData['career'],
                                     jobData['Education'], jobData['pay'], jobData['employmentType'], jobData['workType'], jobData['welfare']))
         db.commit()
     else:
@@ -41,9 +47,10 @@ def delete_db():
 
 def get_data(sql):
     try:
-        with db.cursor() as cursor:
+        with db.cursor(pymysql.cursors.DictCursor) as cursor:
             cursor.execute(sql)
             result = cursor.fetchall()
+            print("result타입", type(result))
             return result
     except Exception as e:
         print(f"Error fetching data from database: {e}")

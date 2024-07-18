@@ -11,6 +11,10 @@ from exceptList import middle_except, top_except, administrative_district
 def city_district(address):
     parts = ["도", "시", "구", "로", "길"]
 
+    if "대구" in address:
+        region = address[:2] + " " + address[2:]
+        return region
+
     for exception in middle_except:
         if exception in address:
             index = address.index(exception[0])
@@ -179,6 +183,8 @@ def insert_data():
             if False in detail:
                 continue
 
+            jobData["fullregion"] = detail[2]
+
             # 괄호 전 지역만 추출
             if "(" in detail[2]:
                 # 괄호가 들어간 위치를 찾아 그 위치 전까지만 추출
@@ -189,7 +195,7 @@ def insert_data():
 
             for ad in administrative_district:
                 if ad in region:
-                    region = region.strip(ad)
+                    region = region.replace(ad, " ").strip()
 
             exception_handled = False # 지역 예외 처리 여부 표시
 
@@ -246,6 +252,8 @@ def insert_data():
             jobData["workType"] = int(detail[5][1])
             jobData["welfare"] = detail[6]
 
+            # print(jobData)
+            # break
             # DB.py 내 jobData 함수를 이용하여 mysql에 데이터 적재
             input_db(jobData)
 
