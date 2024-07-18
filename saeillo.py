@@ -42,7 +42,7 @@ def format_worktype(worktype):
 #     return paginated_data, has_prev, has_next, total_pages
 @app.route('/')
 @app.route('/<name>')
-def renework(name = None):
+def saeillo(name = None):
     return render_template('main.html', name=name)
 
 @app.route('/full')
@@ -106,6 +106,8 @@ def region_page():
 
 @app.route('/personal')
 def personal_page():
+    ## 작성 필수
+    ###
     return render_template('personal.html')
 
 @app.route('/detail/<int:index>')
@@ -121,6 +123,16 @@ def detail_page(index):
 
     print(data)
     return render_template('detail.html', data=data)
+
+@app.route('/notice')
+def notice_page():
+    data = "aa"
+    return render_template('notice.html')
+
+@app.route('/writenotice')
+def writenotice_page():
+    data = "aa"
+    return render_template('writeNotice.html', data=data)
 
 
 if __name__ == "__main__":
