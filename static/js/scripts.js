@@ -74,7 +74,7 @@ function cat1_change( target_value) {
             button.value = name;
             button.textContent = name;
             button.style ="width:170px;height:80px;"
-            button.onclick(checkOnlyOne(button),navigateToRegion(name))
+            button.onclick(cat2_change(cat2_value));
             li.appendChild(button);
             target.appendChild(li);
         });
