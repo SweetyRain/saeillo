@@ -68,8 +68,8 @@ function cat1_change( target_value) {
             var li = document.createElement("li");
 
             // 시에 따른 구,군 버튼 생성
-            var button = document.createElement("input");
-            button.type = "submit";
+            var button = document.createElement("button");
+            button.type = "button";
             button.className = "btn";
             button.value = name;
             button.textContent = name;
