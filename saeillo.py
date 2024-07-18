@@ -69,7 +69,21 @@ def category_page():
 
 @app.route('/region')
 def region_page():
-    return render_template('region.html')
+    value = request.args.get('value', default='서울 강남구', type=str)
+    print(value)
+    address1, address2 = value.split()
+    region_sql = (
+        f"SELECT job_index, job_title, job_link, job_region, job_deadline, job_worktype, job_pay FROM announcement WHERE job_fullregion = '%{address2}%'")
+
+    data = get_data(region_sql)
+
+    for row in data:
+        row['formatted_deadline'] = format_deadline(row['job_deadline'])
+        row['formatted_pay'] = format_pay(row['job_pay'])
+
+    # count_sql = f"SELECT COUNT(*) FROM announcement WHERE job_categorie = '{value}'"
+
+    return render_template('region.html', data=data)
 
 @app.route('/personal')
 def personal_page():

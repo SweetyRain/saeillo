@@ -11,10 +11,6 @@ from exceptList import middle_except, top_except, administrative_district
 def city_district(address):
     parts = ["도", "시", "구", "로", "길"]
 
-    if "대구" in address:
-        region = address[:2] + " " + address[2:]
-        return region
-
     for exception in middle_except:
         if exception in address:
             index = address.index(exception[0])
@@ -198,6 +194,10 @@ def insert_data():
                     region = region.replace(ad, " ").strip()
 
             exception_handled = False # 지역 예외 처리 여부 표시
+            if "대구" in region:
+                region = region[:6]
+                jobData["region"] = city_district(region)
+                exception_handled = True
 
             # 지역 요약을 위한 예외 처리
             for exception in middle_except:
