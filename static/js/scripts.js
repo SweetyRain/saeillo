@@ -74,13 +74,17 @@ function cat1_change( target_value) {
             button.value = name;
             button.textContent = name;
             button.style ="width:170px;height:80px;"
+            button.onclick(checkOnlyOne(button),navigateToRegion(name))
             li.appendChild(button);
             target.appendChild(li);
         });
 
     }
 }
-
+function navigateToRegion(value) {
+    const url = `/region?value=${encodeURIComponent(value)}`;
+    window.location.href = url;
+}
 
 function cat2_change(cat2_value) {
     console.log(cat2_value);  // 선택한 구/군 값으로 원하는 작업을 수행할 수 있습니다.
