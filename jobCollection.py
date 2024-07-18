@@ -9,6 +9,13 @@ from datetime import timedelta
 # 지역 띄어쓰기 삽입
 def city_district(address):
     parts = ["도", "시", "구", "로", "길"]
+    region_except = ["대구광역시", "구로구", "구미시", "시흥시", "구리시", "종로구"]
+
+    for exception in region_except:
+        if exception in address:
+            index = address.index(exception[0])
+            region = address[:index] + " " + address[index:index + len(exception)] + " " + address[index + len(exception):]
+            return region
 
     for part in parts:
         address = address.replace(part, part + " ")
@@ -115,7 +122,7 @@ def get_detail_data(info_divs):
             for span in spans:
                 text = span.get_text(strip=True).replace('\n', '').replace('\r', '').replace('\t', '').replace(' ', '')
                 if not text:
-                    text = "none"
+                    text = False
                 if "font-pink" in span.get('class', []):
                     continue
                 detail.append(text)
@@ -169,6 +176,9 @@ def insert_data():
             # detail[5]: '주5일근무(주소정근로시간:40시간)'
             # detail[6]: 복지 / 기본 = "없음"
 
+            if False in detail:
+                continue
+
             # 괄호 전 지역만 추출
             if "(" in detail[2]:
                 # 괄호가 들어간 위치를 찾아 그 위치 전까지만 추출
@@ -177,7 +187,8 @@ def insert_data():
             else:
                 region = detail[2]
 
-            region_except = ["구로구", "구미시"]
+            region_except = ["구로구", "구미시", "시흥시", "대구광역시", "구리시"]
+            exception_handled = False # 지역 예외 처리 여부 표시
 
             # 지역 요약을 위한 예외 처리
             for exception in region_except:
@@ -185,8 +196,10 @@ def insert_data():
                     index = region.find(exception)
                     region = region[:index + len(exception)]
                     jobData["region"] = city_district(region)
+                    exception_handled = True
                     break
-            else:
+
+            if not exception_handled:
                 if "구" in region:
                     index = region.find("구")
                     region = region[:index + 1]
@@ -199,6 +212,10 @@ def insert_data():
                     index = region.find("군")
                     region = region[:index + 1]
                     jobData["region"] = city_district(region)
+                elif "면" in region:
+                    index = region.find("면")
+                    region = region[:index + 1]
+                    jobData["region"] = city_district(region)
 
             jobData["startday"] = startline
             jobData["dday"] = dday
@@ -207,23 +224,23 @@ def insert_data():
 
             # pay
             if "월급" in detail[3]:
-                jobData["pay"] = int(re.sub(r'[^0-9]', '', detail[3][2:5]) + "0000")
+                jobData["pay"] = int(re.sub(r'[^0-9]', '', detail[3][:9]) + "0000")
 
             elif "연봉" in detail[3]:
-                jobData["pay"] = int(re.sub(r'[^0-9]', '', detail[3]) + "0000") // 12
+                jobData["pay"] = int(re.sub(r'[^0-9]', '', detail[3][:8]) + "0000") // 12
 
             # 시급으로 표기된 경우
             else:
                 # 급여에서 숫자만 추출(ex) 13,500원인 경우 13500만 추출)
                 hourlyRate = re.sub(r'[^0-9]', '', detail[3][2:9])
                 # 근무 형태에서 주소정근로시간 추출
-                workweek = re.sub(r'[^0-9]', '', detail[5][-5:])
+                workweek = detail[5][1]
                 if workweek == '':
                     workweek = 1
                 jobData["pay"] = 4 * int(workweek) * int(hourlyRate)
 
             jobData["employmentType"] = detail[4][:12]
-            jobData["workType"] = detail[5][:5]
+            jobData["workType"] = int(detail[5][1])
             jobData["welfare"] = detail[6]
 
             # DB.py 내 jobData 함수를 이용하여 mysql에 데이터 적재
