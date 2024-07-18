@@ -1764,13 +1764,14 @@ progress {
 }
 .table > tbody {
   vertical-align: inherit;
+  border-top
 }
 .table > thead {
   vertical-align: bottom;
 }
 
 .table-group-divider {
-  border-top: 2px solid currentcolor;
+  border-bottom: 2px solid #333 !important;
 }
 
 .caption-top {
@@ -11652,6 +11653,7 @@ textarea.form-control-lg {
 
 .board-list{
   line-height: 1.6;
+
 }
 
 tr {
@@ -11659,6 +11661,7 @@ tr {
   vertical-align: inherit;
   unicode-bidi: isolate;
   border-color: inherit;
+  border-bottom: 3px solid #D3D3D3;
 }
 
 table {
@@ -11674,9 +11677,11 @@ table {
 }
 .table-wrap{
   position: relative;
-  border-top: 2px solid #00182e;
+  border-top: 3px solid #00182e;
   min-height:100px;
   min-width:1030px;
+
+
 }
 table th {
 
@@ -11687,6 +11692,7 @@ table th {
   color: #636464;
   text-align: -internal-center;
   unicode-bidi: isolate;
+
 }
 
 table tbody tr {

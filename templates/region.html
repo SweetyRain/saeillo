@@ -70,7 +70,7 @@
                                                     <div class="box_table_wrap">
                                                         <!--table-->
                                                         <table class="box_table">
-                                                            <tr>
+                                                            <tr style="border:0 !important;">
                                                                 <td class="region_column">
                                                                     <!--시 선택-->
                                                                     <ul class="region_list" id="fr1">
@@ -170,7 +170,7 @@
                                         </tr>
                                     </thead>
                                     <!--카테고리꺼 복사해옴-->
-                                    <tbody>
+                                    <tbody >
                                         {% for row in data %}
                                             <tr id ="list{{ loop.index }}">
                                                 <td>{{row.job_index}}</td>

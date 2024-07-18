@@ -76,7 +76,7 @@
 
                             <!-- 결과를 여기에 표시할 div -->
                             <div id="resultBox" class="table-wrap">
-                                <table class="board-list">
+                                <table class="board-list" >
                                     <colgroup>
                                         <col style="width:1.5em;margin:0.4em;">
                                         <col style="width:18em;margin:1.5em;">
@@ -93,7 +93,7 @@
                                             <th scope="col" style="text-align: center;">마감일</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody >
                                         {% for row in data %}
                                             <tr id ="list{{ loop.index }}">
                                                 <td>{{row.job_index}}</td>
