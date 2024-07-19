@@ -72,7 +72,7 @@ function cat1_change( target_value) {
             button.type = "button";
             button.className = "btn";
             button.value = name;
-            button,name="region_2"
+            button.name="region_2"
             button.textContent = name;
             button.style ="width:170px;height:80px;"
             button.onclick = function() {

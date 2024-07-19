@@ -58,7 +58,7 @@
                             <div class="p-4 p-lg-4 bg-styleBlue_light_select rounded-3 text-center">
                                 <div class="m-4 m-lg-5">
                                     {% for row in data%}
-                                    <h1 class="display-5 fw-bold">{{ row.job_title }}</h1>
+                                    <h1 class="display-5 fw-bold">{{ row.job_title }}</h1><br>
                                     <span class="display-6">{{ row.formatted_deadline }}<br><br></span>
 
                                     <a href="{{row.job_link}}">
@@ -102,7 +102,7 @@
                                                     </span>
                                                 </div>
                                             </span>
-                                        </li>
+                                        </li><br><br>
 
                                         <li class="personal-btn-container" style="height: 200px !important;">
                                             <span class="detail_sm_tit " >
@@ -111,7 +111,7 @@
                                                 </div>
                                                 <div class="detail_sm_contents fw-bold" >
                                                     <span class="float-start">
-                                                        <span>고용형태&nbsp;&nbsp;: &nbsp;</span>
+                                                        <span>고용형태&nbsp;&nbsp;:</span>
                                                         <span>{{ row.job_employmentType }}</span>
 
                                                     </span><br>
@@ -120,7 +120,7 @@
                                                         <span>{{ row.formatted_worktype }} </span>
                                                     </span>
                                                 </div>
-                                            </span>
+                                            </span><br>
 
                                             <span class="detail_sm_tit">
                                                 <div>
