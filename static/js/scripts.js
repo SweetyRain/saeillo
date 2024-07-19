@@ -72,6 +72,7 @@ function cat1_change( target_value) {
             button.type = "button";
             button.className = "btn";
             button.value = name;
+            button,name="region_2"
             button.textContent = name;
             button.style ="width:170px;height:80px;"
             button.onclick = function() {
@@ -116,11 +117,62 @@ function fn_SearchReset() {
        checkbox.checked = false;
    });
 
+   const region_checkboxes_2
+       = document.getElementsByName("region_2");
+
+       region_checkboxes_2.forEach((cb) => {
+       cb.checked = false;
+   });
+
    const region_checkboxes
         = document.getElementsByName("region_1");
 
         region_checkboxes.forEach((cb) => {
         cb.checked = false;
-    })
+    });
+
+    // 숨겨진 입력 필드의 값을 초기화합니다.
+    document.getElementById('selected_region').value = '';
+    document.getElementById('selected_holiday').value = '';
+    document.getElementById('selected_waged').value = '';
 
 }
+
+// updateSelectedWaged 함수 정의
+function updateSelectedWaged() {
+    var checkboxes = document.querySelectorAll('input[name="wage-checkbox"]');
+    var hiddenInput = document.getElementById('selected_waged');
+    var selectedValues = [];
+
+    checkboxes.forEach(function(checkbox) {
+        if (checkbox.checked) {
+            selectedValues.push(checkbox.value);
+        }
+    });
+
+    // 숨겨진 입력 필드의 값을 업데이트합니다.
+    hiddenInput.value = selectedValues.join(',');
+}
+
+// updateSelectedHoliday 함수 정의
+function updateSelectedHoliday() {
+    var checkboxes = document.querySelectorAll('input[name="holiday-checkbox"]');
+    var hiddenInput = document.getElementById('selected_holiday');
+    var selectedValues = [];
+
+    checkboxes.forEach(function(checkbox) {
+        if (checkbox.checked) {
+            selectedValues.push(checkbox.value);
+        }
+    });
+
+    // 숨겨진 입력 필드의 값을 업데이트합니다.
+    hiddenInput.value = selectedValues.join(',');
+}
+
+// 폼의 submit 이벤트 리스너 추가
+document.getElementById('wageForm').addEventListener('submit', function(event) {
+    // 폼 제출 전에 체크박스의 값을 숨겨진 입력 필드에 설정합니다.
+    updateSelectedWaged();
+    updateSelectedHoliday();
+});
