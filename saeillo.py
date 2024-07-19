@@ -1,10 +1,10 @@
-from flask import Flask, render_template, request
-from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, request, render_template, flash, redirect, url_for
 from DB import get_data, insert_notice
 from datetime import datetime
 import requests
 
 app = Flask(__name__)
+app.secret_key = '1234'
 
 #마감일 포맷 변경
 def format_deadline(deadline):
@@ -136,18 +136,25 @@ def notice_page():
 
 @app.route('/writenotice', methods = ['GET', 'POST'])
 def writenotice_page():
+    checking_password = "1234"
     now = datetime.today()
     today = int(now.strftime('%Y%m%d'))
+    text = ""
     if request.method == 'POST':
         title = request.form['title']
         manager = request.form['manager']
         password = request.form['password']
         content = request.form['content']
         registration_date = today
-        notice_data = {'title': title, 'manage': manager, 'password': password, 'content': content, 'registration_date':registration_date}
-        insert_notice(notice_data)
+        notice_data = {'title': title, 'manage': manager, 'password': password, 'content': content,
+                       'registration_date': registration_date}
+        if password == checking_password:
+            insert_notice(notice_data)
+            flash("공지가 등록되었습니다.", "success")
+        else:
+            flash("올바르지 않은 비밀번호입니다. \n 관리자만 공지 등록이 가능합니다.", "error")
     return render_template('writeNotice.html')
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

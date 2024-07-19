@@ -1,6 +1,7 @@
 import pymysql
 import datetime
 from dateutil.relativedelta import relativedelta
+import json
 
 db = pymysql.connect(host='localhost',
                      port=3306,
@@ -52,10 +53,7 @@ def get_data(sql):
 
 checking_password = "1234"
 def insert_notice(notice_data):
-    if notice_data['password'] == checking_password:
-        insert_sql = ("INSERT INTO notice (notice_title, notice_manager, notice_password, notice_content, notice_registration) "
-                      "VALUES (%s, %s, %s, %s, %s)")
-        cursor.execute(insert_sql, (notice_data['title'], notice_data['manage'], notice_data['password'], notice_data['content'], notice_data['registration_date']))
-        db.commit()
-    else:
-        print(notice_data['title'], "DB 삽입 실패\n")
+    insert_sql = ("INSERT INTO notice (notice_title, notice_manager, notice_password, notice_content, notice_registration) "
+                  "VALUES (%s, %s, %s, %s, %s)")
+    cursor.execute(insert_sql, (notice_data['title'], notice_data['manage'], notice_data['password'], notice_data['content'], notice_data['registration_date']))
+    db.commit()
