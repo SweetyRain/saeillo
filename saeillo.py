@@ -99,9 +99,43 @@ def region_page():
 
 @app.route('/personal')
 def personal_page():
-    ## 작성 필수
-    ###
-    return render_template('personal.html')
+    values = request.form.get('value', default='서울 강남구', type=str)
+    regions = values.split() if values else []
+    holidays = request.form.getlist('holiday-checkbox', type=int)
+    wages = request.form.getlist('wage-checkbox', type=int)
+
+    personal_sql = (
+        "SELECT job_index, job_title, job_link, job_region, job_deadline, job_worktype, job_pay "
+        "FROM announcement "
+        "WHERE"
+    )
+
+    # 지역 조건 추가
+    if regions:
+        region_conditions = " AND ".join([f"job_fullregion LIKE '%{r}%'" for r in regions])
+        personal_sql += f" ({region_conditions})"
+
+    # 근무일수 조건 추가
+    if holidays:
+        if regions:
+            personal_sql += " AND"
+        holiday_conditions = " OR ".join([f"job_worktype = {h}" for h in holidays])
+        personal_sql += f" ({holiday_conditions})"
+
+    # 희망임금 조건 추가
+    if wages:
+        if regions or holidays:
+            personal_sql += " AND"
+        wage_conditions = " OR ".join([f"job_pay >= {w}" for w in wages])
+        personal_sql += f" ({wage_conditions})"
+    print(personal_sql)
+    data = get_data(personal_sql)
+    print(data)
+    for row in data:
+        row['formatted_deadline'] = format_deadline(row['job_deadline'])
+        row['formatted_worktype'] = format_worktype(row['job_worktype'])
+
+    return render_template('personal.html', data=data)
 
 @app.route('/detail/<int:index>')
 def detail_page(index):
@@ -126,26 +160,37 @@ def notice_page():
 
     return render_template('notice.html', data=data)
 
+@app.route('/notice/<int:index>')
+def notice_contents_page(index):
+    detail_sql = (f"SELECT * FROM notice WHERE notice_index = '{index}'")
+    data = get_data(detail_sql)
+
+    for row in data:
+        row['formatted_date'] = format_deadline(row['notice_registration'])
+
+    return render_template('noticeContents.html', data=data)
+
 @app.route('/writenotice', methods = ['GET', 'POST'])
 def writenotice_page():
     checking_password = "1234"
     now = datetime.today()
     today = int(now.strftime('%Y%m%d'))
-    text = ""
+    error = None
+
     if request.method == 'POST':
         title = request.form['title']
         manager = request.form['manager']
         password = request.form['password']
         content = request.form['content']
         registration_date = today
-        notice_data = {'title': title, 'manage': manager, 'password': password, 'content': content,
+        notice_data = {'title': title, 'manager': manager, 'password': password, 'content': content,
                        'registration_date': registration_date}
-        if password == checking_password:
+        if password != checking_password:
             insert_notice(notice_data)
-            flash("공지가 등록되었습니다.", "success")
+            error = "올바르지 않은 비밀번호입니다. \n 관리자만 공지 등록이 가능합니다."
         else:
-            flash("올바르지 않은 비밀번호입니다. \n 관리자만 공지 등록이 가능합니다.", "error")
-    return render_template('writeNotice.html')
+            return redirect(url_for('notice_page'))
+    return render_template('writeNotice.html', error = error)
 
 
 if __name__ == "__main__":

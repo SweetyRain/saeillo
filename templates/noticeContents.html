@@ -60,18 +60,20 @@
                             <div class="p-4 p-lg-4 bg-styleBlue_light_select rounded-3 text-center">
                                 <div class="m-4 m-lg-5">
                                     
-                            
-                                    <h1 class="display-5 fw-bold">게시글 제목</h1>
+                                    {% for row in data %}
+                                    <h1 class="display-5 fw-bold">{{row.notice_title}}</h1>
                                     <br><br>
                                     <div class="form-check-reverse">
-                                        <span class="h4 m-sm-4" >등록일&nbsp;:&nbsp;&nbsp;</span><span class="h4 m-sm-4" >작성자&nbsp;:&nbsp;&nbsp;</span>
+                                        <span class="h4 m-sm-4" >등록일&nbsp;:&nbsp;&nbsp; {{row.formatted_date}}</span>
+                                        <span class="h4 m-sm-4" >작성자&nbsp;: &nbsp;&nbsp; {{row.notice_manager}}</span>
                                     </div>
                                     <br><br>
 
                                     <div class="notice_con rounded-3">
-                                        <h2 >내용</h2>
+                                        <h2>내용</h2>
+                                        {{row.notice_content}}
                                     </div>
-              
+                                    {% endfor %}
                                 </div>
                             </div>
                             <br><br><br>

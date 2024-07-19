@@ -55,5 +55,5 @@ checking_password = "1234"
 def insert_notice(notice_data):
     insert_sql = ("INSERT INTO notice (notice_title, notice_manager, notice_password, notice_content, notice_registration) "
                   "VALUES (%s, %s, %s, %s, %s)")
-    cursor.execute(insert_sql, (notice_data['title'], notice_data['manage'], notice_data['password'], notice_data['content'], notice_data['registration_date']))
+    cursor.execute(insert_sql, (notice_data['title'], notice_data['manager'], notice_data['password'], notice_data['content'], notice_data['registration_date']))
     db.commit()

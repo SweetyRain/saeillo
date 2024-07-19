@@ -13,17 +13,17 @@
         <link rel="stylesheet" href= "{{ url_for('static', filename='css/styles.css') }}"  />
         <!--java script-->
         <script src="{{ url_for('static', filename='js/scripts.js') }}" defer></script>
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                var successMessage = "{{ get_flashed_messages(category_filter=['success'])[0] if get_flashed_messages(category_filter=['success']) else '' }}";
-                var errorMessage = "{{ get_flashed_messages(category_filter=['error'])[0] if get_flashed_messages(category_filter=['error']) else '' }}";
-                if (successMessage) {
-                    alert(successMessage);
-                } else if (errorMessage) {
-                    alert(errorMessage);
-                }
-            });
-        </script>
+<!--        <script>-->
+<!--            document.addEventListener("DOMContentLoaded", function() {-->
+<!--                var successMessage = "{{ get_flashed_messages(category_filter=['success'])[0] if get_flashed_messages(category_filter=['success']) else '' }}";-->
+<!--                var errorMessage = "{{ get_flashed_messages(category_filter=['error'])[0] if get_flashed_messages(category_filter=['error']) else '' }}";-->
+<!--                if (successMessage) {-->
+<!--                    alert(successMessage);-->
+<!--                } else if (errorMessage) {-->
+<!--                    alert(errorMessage);-->
+<!--                }-->
+<!--            });-->
+<!--        </script>-->
     </head>
     <body>
         <!-- Responsive navbar-->
@@ -72,43 +72,40 @@
                                     
                                     <form class="form-check" action="/writenotice" method="POST">
                                         <!-- 폼 -->
-                                            <h1 class="display-5 fw-bold">게시글 작성</h1>
-                                            <br><br>
-                                            
-                                            <div class="notice_tit">
-                                                <dl>
-                                                    <span class="personal_tit">제목&nbsp;:&nbsp;&nbsp;</span>
-                                                    <span><input type="text" name="title" style="width: 24.5em;" placeholder="제목 입력"></span>
-                                                </dl>
-                                            </div>
-                                           
-                                            <div class="notice_info">
-                                                <span>
-                                                    <span class="personal_tit">작성자&nbsp;:&nbsp;&nbsp;</span>
-                                                    <span><input type="text" name="manager" style="width: 10em;" placeholder="작성자 입력">&nbsp;</span>
-                                                </span> 
-                                                <span>
-                                                    <span class="personal_tit">&nbsp;비밀번호</span>
-                                                    <span><input type="password" name="password" style="width: 8em;" placeholder="작성 코드 입력"></span>
-                                                </span><br><br>
-                                            </div>
-                                            <div class="notice_cont">
-                                                <textarea name="content" style="width: 28.2em; height:24em;" placeholder="내용 입력"></textarea>
-                                            </div>
-                                        
-                                            <div class="form-check-reverse" style="margin:20px; ">
-                                                <input type="submit" class="btn btn-outline-secondary" style="font-size:30px;" value="작성 완료">
-                                                
-                                            </div> 
-                                        </form>
-                                    
-                                    
+                                        <h1 class="display-5 fw-bold">게시글 작성</h1>
+                                        <br><br>
+                                        {% if error %}
+                                            <h3 style="color:red"><p><strong>Error:</strong> {{ error }}</h3>
+                                        {% endif %}
+                                        <div class="notice_tit">
+                                            <dl>
+                                                <span class="personal_tit">제목&nbsp;:&nbsp;&nbsp;</span>
+                                                <span><input type="text" name="title" style="width: 24.5em;" placeholder="제목 입력"></span>
+                                            </dl>
+                                        </div>
 
+                                        <div class="notice_info">
+                                            <span>
+                                                <span class="personal_tit">작성자&nbsp;:&nbsp;&nbsp;</span>
+                                                <span><input type="text" name="manager" style="width: 10em;" placeholder="작성자 입력">&nbsp;</span>
+                                            </span>
+                                            <span>
+                                                <span class="personal_tit">&nbsp;비밀번호</span>
+                                                <span><input type="password" name="password" style="width: 8em;" placeholder="작성 코드 입력"></span>
+                                            </span><br><br>
+                                        </div>
+                                        <div class="notice_cont">
+                                            <textarea name="content" style="width: 28.2em; height:24em;" placeholder="내용 입력"></textarea>
+                                        </div>
+
+                                        <div class="form-check-reverse" style="margin:20px; ">
+                                            <input type="submit" class="btn btn-outline-secondary" style="font-size:30px;" value="작성 완료">
+
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                             <br><br><br>
-
-                            
                         </div>
                     </div>
                 </div>

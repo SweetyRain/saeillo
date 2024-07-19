@@ -89,7 +89,9 @@
                                             <tr id ="list{{ loop.index }}">
                                                 <td style="text-align:center !important;">{{row.notice_index}}</td>
                                                 <td>
-                                                    <p>{{row.notice_title}}</p>
+                                                    <a href="{{ url_for('notice_contents_page', index=row.notice_index) }}">
+                                                        <p>{{row.notice_title}}</p>
+                                                    </a>
                                                 </td>
                                                 <td style="text-align:center !important;">
                                                     <p>{{row.notice_manager}}</p>
