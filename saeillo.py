@@ -13,11 +13,6 @@ def format_deadline(deadline):
     else:
         return datetime.strptime(str(deadline), '%Y%m%d').strftime('%Y년 %m월 %d일')
 
-def format_pay(pay):
-    pay = str(pay)[:-4]
-    format_pay = f'월 {pay} 만원'
-    return format_pay
-
 def format_worktype(worktype):
     format_worktype = f'주 {worktype}일 근무'
     return format_worktype
@@ -66,7 +61,6 @@ def category_page():
 
     for row in data:
         row['formatted_deadline'] = format_deadline(row['job_deadline'])
-        row['formatted_pay'] = format_pay(row['job_pay'])
         row['formatted_worktype'] = format_worktype(row['job_worktype'])
 
     #count_sql = f"SELECT COUNT(*) FROM announcement WHERE job_categorie = '{value}'"
@@ -97,7 +91,6 @@ def region_page():
     print(data)
     for row in data:
         row['formatted_deadline'] = format_deadline(row['job_deadline'])
-        row['formatted_pay'] = format_pay(row['job_pay'])
         row['formatted_worktype'] = format_worktype(row['job_worktype'])
 
     # count_sql = f"SELECT COUNT(*) FROM announcement WHERE job_categorie = '{value}'"
@@ -118,7 +111,6 @@ def detail_page(index):
     print(data)
     for row in data:
         row['formatted_deadline'] = format_deadline(row['job_deadline'])
-        row['formatted_pay'] = format_pay(row['job_pay'])
         row['formatted_worktype'] = format_worktype(row['job_worktype'])
 
     print(data)

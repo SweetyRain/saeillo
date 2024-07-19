@@ -195,8 +195,9 @@ def insert_data():
 
             exception_handled = False # 지역 예외 처리 여부 표시
             if "대구" in region:
-                region = region[:6]
-                jobData["region"] = city_district(region)
+                region = region[:5]
+                daegu = city_district(region)
+                jobData["region"] = daegu
                 exception_handled = True
 
             # 지역 요약을 위한 예외 처리
@@ -225,31 +226,25 @@ def insert_data():
                     index = region.find("면")
                     region = region[:index + 1]
                     jobData["region"] = city_district(region)
+                elif "길" in region:
+                    index = region.find("길")
+                    region = region[:index + 1]
+                    jobData["region"] = city_district(region)
 
             jobData["startday"] = startline
             jobData["dday"] = dday
             jobData["career"] = detail[0]
             jobData["Education"] = detail[1]
 
-            # pay
-            if "월급" in detail[3]:
-                jobData["pay"] = int(re.sub(r'[^0-9]', '', detail[3][:9]) + "0000")
-
-            elif "연봉" in detail[3]:
-                jobData["pay"] = int(re.sub(r'[^0-9]', '', detail[3][:8]) + "0000") // 12
-
-            # 시급으로 표기된 경우
-            else:
-                # 급여에서 숫자만 추출(ex) 13,500원인 경우 13500만 추출)
-                hourlyRate = re.sub(r'[^0-9]', '', detail[3][2:9])
-                # 근무 형태에서 주소정근로시간 추출
-                workweek = detail[5][1]
-                if workweek == '':
-                    workweek = 1
-                jobData["pay"] = 4 * int(workweek) * int(hourlyRate)
+            jobData["pay"] = detail[3]
 
             jobData["employmentType"] = detail[4][:12]
-            jobData["workType"] = int(detail[5][1])
+
+            if detail[5][1] == "주":
+                jobData["workType"] = 0
+            else:
+                jobData["workType"] = int(detail[5][1])
+
             jobData["welfare"] = detail[6]
 
             # print(jobData)
