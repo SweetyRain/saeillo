@@ -12042,3 +12042,11 @@ li{
   margin-bottom: 1rem;
   overflow: auto;
 }
+
+.notice_con{
+  width: 55em; height:20em;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  overflow:auto;
+  text-align:start;
+}
