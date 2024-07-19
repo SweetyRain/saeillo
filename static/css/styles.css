@@ -2814,7 +2814,9 @@ textarea.form-control-lg {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-
+.clicked_bg{
+    background-color: #c0c0c0;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .btn {

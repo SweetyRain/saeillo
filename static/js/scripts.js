@@ -176,3 +176,4 @@ document.getElementById('wageForm').addEventListener('submit', function(event) {
     updateSelectedWaged();
     updateSelectedHoliday();
 });
+
