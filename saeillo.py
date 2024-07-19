@@ -47,7 +47,7 @@ def full_page():
 
     for row in data:
         row['formatted_deadline'] = format_deadline(row['job_deadline'])
-        row['formatted_pay'] = format_pay(row['job_pay'])
+
         row['formatted_worktype'] = format_worktype(row['job_worktype'])
 
     return render_template('full.html', data=data)
