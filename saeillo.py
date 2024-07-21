@@ -181,9 +181,9 @@ def writenotice_page():
         notice_data = {'title': title, 'manager': manager, 'password': password, 'content': content,
                        'registration_date': registration_date}
         if password != checking_password:
-            insert_notice(notice_data)
             error = "올바르지 않은 비밀번호입니다. \n 관리자만 공지 등록이 가능합니다."
         else:
+            insert_notice(notice_data)
             return redirect(url_for('notice_page'))
     return render_template('writeNotice.html', error = error)
 
