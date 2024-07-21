@@ -152,8 +152,8 @@ def insert_data():
 
             # 등록일이 어제인 데이터만 크롤링
             check, startline = registration_date_check(check_div)
-            # if date_check == False:
-            #     continue
+            if date_check == False:
+                continue
 
             name, href, categorie, dday = parse_data(div, deadline, check_div)
             if href:

@@ -11774,9 +11774,9 @@ li{
 .personal-btn-container{
   display: flex !important;
   position: relative !important;
-  padding: 12px 0 !important;
+  padding: 5px !important;
   box-sizing: border-box;
-  font: 1.8em 'Pretendard';
+  font: 1.6em 'Pretendard';
 }
 
 .tit_region{
@@ -12022,9 +12022,9 @@ li{
   word-break: break-all !important;
   color: #333 !important;
   margin: 0 !important;
-  padding: 0 !important;
+  padding: 1em !important;
   box-sizing: border-box !important;
-  width:18em;
+  width: 14em;
   font: 0.9em 'Pretendard'
 
 }
