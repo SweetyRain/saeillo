@@ -97,12 +97,11 @@ def region_page():
 
     return render_template('region.html', data=data)
 
-@app.route('/personal')
+@app.route('/personal', methods = ['GET', 'POST'])
 def personal_page():
     values = request.form.get('value', default='서울 강남구', type=str)
     regions = values.split() if values else []
     holidays = request.form.getlist('holiday-checkbox', type=int)
-    wages = request.form.getlist('wage-checkbox', type=int)
 
     personal_sql = (
         "SELECT job_index, job_title, job_link, job_region, job_deadline, job_worktype, job_pay "
@@ -111,9 +110,11 @@ def personal_page():
     )
 
     # 지역 조건 추가
+    params = []
     if regions:
         region_conditions = " AND ".join([f"job_fullregion LIKE '%{r}%'" for r in regions])
         personal_sql += f" ({region_conditions})"
+        params.extend([f"%{r}%" for r in regions])
 
     # 근무일수 조건 추가
     if holidays:
@@ -121,16 +122,10 @@ def personal_page():
             personal_sql += " AND"
         holiday_conditions = " OR ".join([f"job_worktype = {h}" for h in holidays])
         personal_sql += f" ({holiday_conditions})"
+        params.extend(holidays)
 
-    # 희망임금 조건 추가
-    if wages:
-        if regions or holidays:
-            personal_sql += " AND"
-        wage_conditions = " OR ".join([f"job_pay >= {w}" for w in wages])
-        personal_sql += f" ({wage_conditions})"
     print(personal_sql)
     data = get_data(personal_sql)
-    print(data)
     for row in data:
         row['formatted_deadline'] = format_deadline(row['job_deadline'])
         row['formatted_worktype'] = format_worktype(row['job_worktype'])
